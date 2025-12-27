@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TopMasterOF | Agencia Élite de OFM</title>
-    <meta name="description" content="Agencia de OFM con enfoque en crecimiento exponencial y branding de lujo.">
+    <title>TopMasterOF | Plataforma Élite OFM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
@@ -14,105 +13,116 @@
             --dark-grey: #0f172a; 
             --text: #f8fafc; 
         }
-        body { 
-            background-color: var(--black); 
-            color: var(--text); 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            scroll-behavior: smooth; 
-        }
-        header { 
-            padding: 1rem 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: rgba(2, 6, 23, 0.95); 
-            border-bottom: 1px solid #1e293b; 
-            position: sticky; top: 0; z-index: 1000; 
-        }
-        .logo { font-weight: 800; font-size: 1.5rem; color: var(--blue-vibrant); letter-spacing: -1px; }
+        body { background-color: var(--black); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; scroll-behavior: smooth; overflow-x: hidden; }
         
-        /* HERO SECTION */
-        .hero { 
-            height: 90vh; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            text-align: center; 
-            background: radial-gradient(circle at center, #1e293b 0%, #020617 100%); 
-        }
-        .hero h1 { font-size: 4rem; margin-bottom: 1rem; line-height: 1; }
-        .hero h1 span { color: var(--blue-vibrant); text-shadow: 0 0 20px rgba(0, 210, 255, 0.3); }
-        .hero p { color: #94a3b8; max-width: 600px; margin-bottom: 2rem; font-size: 1.2rem; }
+        /* HEADER & NAV */
+        header { padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(2, 6, 23, 0.9); border-bottom: 1px solid #1e293b; position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--blue-vibrant); text-decoration: none; }
 
-        /* TESTIMONIOS */
-        .modelos { padding: 80px 5%; background: var(--dark-grey); text-align: center; }
-        .grid-modelos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
-        .modelo-card { background: #1e293b; padding: 30px; border-radius: 20px; border: 1px solid #334155; }
-        .modelo-card h4 { color: var(--blue-vibrant); margin-bottom: 10px; }
+        /* HERO */
+        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #1e293b 0%, #020617 100%); padding: 20px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1; }
+        .hero h1 span { color: var(--blue-vibrant); }
+        
+        /* SECCIÓN BLOG / MEJORAMIENTO */
+        .blog { padding: 80px 5%; background: var(--black); }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
+        .blog-card { background: var(--dark-grey); border-radius: 15px; overflow: hidden; border: 1px solid #1e293b; transition: 0.3s; }
+        .blog-card:hover { border-color: var(--blue-vibrant); transform: translateY(-5px); }
+        .blog-content { padding: 20px; }
+        .blog-tag { background: var(--blue-deep); font-size: 0.7rem; padding: 5px 10px; border-radius: 5px; text-transform: uppercase; }
 
-        /* FAQ - PREGUNTAS */
-        .faq { padding: 80px 10%; background: var(--black); }
-        .faq-item { background: #0f172a; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid var(--blue-vibrant); }
-        .faq-item h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--blue-vibrant); }
+        /* TESTIMONIOS REALES */
+        .modelos { padding: 60px 5%; background: var(--dark-grey); text-align: center; }
+        .modelo-card { background: #1e293b; padding: 25px; border-radius: 20px; border: 1px solid #334155; margin: 10px; }
 
-        .btn-blue { 
-            background: linear-gradient(90deg, var(--blue-deep), var(--blue-vibrant)); 
-            color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s;
-        }
-        .btn-blue:hover { box-shadow: 0 0 25px rgba(0, 210, 255, 0.5); transform: translateY(-3px); }
+        /* CHATBOT STYLE */
+        #chat-widget { position: fixed; bottom: 100px; right: 30px; width: 300px; background: #1e293b; border-radius: 15px; border: 1px solid var(--blue-vibrant); display: none; flex-direction: column; z-index: 2000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        #chat-header { background: var(--blue-deep); padding: 15px; border-radius: 15px 15px 0 0; font-weight: bold; display: flex; justify-content: space-between; }
+        #chat-body { padding: 15px; max-height: 300px; overflow-y: auto; font-size: 0.9rem; }
+        .chat-btn { background: #334155; border: none; color: white; padding: 8px; margin: 5px 0; border-radius: 5px; cursor: pointer; text-align: left; width: 100%; transition: 0.3s; }
+        .chat-btn:hover { background: var(--blue-vibrant); color: black; }
 
+        .btn-blue { background: linear-gradient(90deg, var(--blue-deep), var(--blue-vibrant)); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; }
         .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; z-index: 1000; text-decoration: none; }
+        #open-chat { position: fixed; bottom: 30px; right: 100px; background: var(--blue-deep); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 25px; cursor: pointer; border: none; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">TOPMASTER<span>OF</span></div>
-        <a href="#contacto" class="btn-blue" style="padding: 10px 20px; font-size: 0.8rem;">AUDITORÍA GRATIS</a>
+        <a href="#" class="logo">TOPMASTER<span>OF</span></a>
+        <nav>
+            <a href="#blog" style="color:white; text-decoration:none; margin-right:20px;">Blog</a>
+            <a href="https://wa.me/573217691379" class="btn-blue" style="padding: 8px 15px;">UNIRSE</a>
+        </nav>
     </header>
 
     <section class="hero">
         <h1>Escala al <span>Top 0.1%</span></h1>
-        <p>Gestión Élite para Creadoras de Contenido. Marketing viral, chatting profesional y libertad financiera absoluta.</p>
-        <a href="https://wa.me/573217691379?text=Hola,%20quiero%20información%20para%20mi%20cuenta" class="btn-blue">EMPEZAR AHORA</a>
+        <p>Expertos en Veritoaguass, Soyandrearamz y el futuro de tu carrera.</p>
+        <a href="#blog" class="btn-blue">VER ARTÍCULOS DE MEJORAMIENTO</a>
+    </section>
+
+    <section id="blog" class="blog">
+        <h2 style="text-align: center;">Portal de <span>Mejoramiento</span></h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-content">
+                    <span class="blog-tag">Mentalidad</span>
+                    <h3>El Mindset de una Top 0.1%</h3>
+                    <p>Cómo manejar la presión y mantener el enfoque en el crecimiento constante.</p>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-content">
+                    <span class="blog-tag">Salud</span>
+                    <h3>Biohacking para Modelos</h3>
+                    <p>Nutrición y rutinas para brillar frente a la cámara todos los días.</p>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-content">
+                    <span class="blog-tag">Estrategia</span>
+                    <h3>Dominando el Algoritmo</h3>
+                    <p>Secretos de TikTok y Reels para atraer tráfico High-Ticket.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="modelos">
-        <h2>Nuestras <span>Modelos</span></h2>
-        <div class="grid-modelos">
-            <div class="modelo-card">
-                <h4>@veritoaguass</h4>
-                <p>"Desde que trabajo con TopMasterOF, mis ingresos se triplicaron y por fin tengo tiempo libre."</p>
-            </div>
-            <div class="modelo-card">
-                <h4>@soyandrearamz</h4>
-                <p>"El equipo de chatting es increíble, cierran ventas que yo antes perdía por falta de tiempo."</p>
-            </div>
+        <h2>Casos de <span>Éxito</span></h2>
+        <div style="display:flex; justify-content:center; flex-wrap:wrap;">
+            <div class="modelo-card"><h4>@veritoaguass</h4><p>Crecimiento masivo verificado.</p></div>
+            <div class="modelo-card"><h4>@soyandrearamz</h4><p>Optimización de ingresos lograda.</p></div>
         </div>
     </section>
 
-    <section class="faq">
-        <h2 style="text-align: center; margin-bottom: 40px;">Preguntas Frecuentes</h2>
-        <div class="faq-item">
-            <h3>¿Necesito tener experiencia previa?</h3>
-            <p>No. Nosotros nos encargamos de crear tu marca desde cero o potenciar la que ya tienes.</p>
+    <button id="open-chat"><i class="fas fa-robot"></i></button>
+    <div id="chat-widget">
+        <div id="chat-header"><span>TopMaster Assistant</span><span onclick="toggleChat()" style="cursor:pointer">×</span></div>
+        <div id="chat-body">
+            <p>¡Hola! Soy el asistente virtual. ¿Qué quieres saber?</p>
+            <button class="chat-btn" onclick="chatRes('¿Cómo funciona el manejo?', 'Nos encargamos del 100%: Chatting 24/7, Marketing y Estrategia de Contenido. Tú solo creas, nosotros vendemos.')">¿Cómo funciona el manejo?</button>
+            <button class="chat-btn" onclick="chatRes('¿Es seguro mi contenido?', 'Totalmente. Usamos bloqueos por país (Geoblocking) y contratos legales de privacidad.')">¿Es seguro mi contenido?</button>
+            <button class="chat-btn" onclick="chatRes('¿Cómo empiezo?', 'Haz clic en el botón de WhatsApp y agendaremos tu auditoría gratuita hoy mismo.')">¿Cómo empiezo?</button>
+            <div id="res-area" style="margin-top:15px; color:var(--blue-vibrant); font-weight:bold;"></div>
         </div>
-        <div class="faq-item">
-            <h3>¿Cómo garantizan mi privacidad?</h3>
-            <p>Contamos con bloqueos geográficos avanzados y contratos de confidencialidad para proteger tu identidad fuera de la plataforma.</p>
-        </div>
-        <div class="faq-item">
-            <h3>¿En cuánto tiempo veré resultados?</h3>
-            <p>Nuestras modelos suelen ver un incremento del 40% en sus ingresos durante los primeros 30 días.</p>
-        </div>
-    </section>
+    </div>
 
-    <footer style="padding: 50px 5%; text-align: center; border-top: 1px solid #1e293b;">
-        <p>&copy; 2025 TopMasterOF Agency. Todos los derechos reservados.</p>
-    </footer>
+    <a href="https://wa.me/573217691379" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-    <a href="https://wa.me/573217691379?text=Hola,%20vengo%20de%20la%20web" class="wa-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <script>
+        function toggleChat() {
+            const chat = document.getElementById('chat-widget');
+            chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+        }
+        document.getElementById('open-chat').onclick = toggleChat;
 
+        function chatRes(preg, res) {
+            document.getElementById('res-area').innerHTML = `<p style="color:white; font-size:0.8rem; font-weight:normal;">> ${preg}</p>${res}`;
+        }
+    </script>
 </body>
 </html>
