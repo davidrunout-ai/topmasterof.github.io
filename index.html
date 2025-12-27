@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>TopMasterOF | Agencia Élite OFM & Gestión 2025</title>
-    <meta name="description" content="Agencia líder en OnlyFans Management. Marketing viral, Chatting 24/7 y seguridad total. Escalamos creadoras al Top 0.5% Global.">
-    <meta name="keywords" content="OnlyFans Management Agency, OFM Agency, Chatting 24/7, Tráfico Viral OnlyFans, Agencia Modelos OnlyFans">
+    <title>TopMasterOF | Agencia Élite OFM 2025</title>
+    <meta name="description" content="Gestión profesional de OnlyFans. Escalamos tu perfil al Top 0.5% con estrategias de marketing viral y chatting 24/7.">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -14,32 +13,76 @@
             --blue-vibrant: #00d2ff; 
             --blue-deep: #0045db;
             --black: #020617; 
-            --dark-grey: #0f172a; 
             --text: #f8fafc; 
         }
 
         body { background-color: var(--black); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* TABLA DE CONTENIDO (Header) */
+        /* HEADER FIJO */
         header { 
             position: fixed; top: 0; width: 100%; padding: 15px 5%; 
             background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(15px);
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 5000; border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+            z-index: 5000; border-bottom: 1px solid rgba(0, 210, 255, 0.1);
+            box-sizing: border-box;
         }
-        header nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+        header nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: 0.3s; }
         header nav a:hover { color: var(--blue-vibrant); }
 
-        /* SECCIÓN 1: HERO CON EFECTO OLAS */
+        /* SECCIÓN 1: HERO CON AGUA Y FONDO DINÁMICO */
         .hero { 
             position: relative; height: 100vh; width: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; overflow: hidden;
-            background: linear-gradient(to bottom, #020617 0%, #001e4d 100%);
+            /* Fondo con movimiento de gradiente */
+            background: linear-gradient(-45deg, #020617, #001e4d, #0045db, #020617);
+            background-size: 400% 400%;
+            animation: oceanFlow 15s ease infinite;
         }
 
-        /* Animación de Olas */
-        .waves { position: absolute; bottom: 0; width: 100%; height: 15vh; min-height: 100px; max-height: 150px; }
+        @keyframes oceanFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* TEXTO CENTRADO Y DINÁMICO */
+        .hero-content { z-index: 20; max-width: 800px; padding: 20px; }
+        
+        .top-rank { 
+            font-size: 1rem; font-weight: 900; color: var(--blue-vibrant);
+            padding: 8px 20px; border: 2px solid var(--blue-vibrant); border-radius: 50px;
+            animation: pulse-glow 2s infinite; margin-bottom: 25px;
+            display: inline-block; letter-spacing: 3px;
+        }
+
+        .hero h1 { font-size: clamp(3rem, 10vw, 5rem); margin: 0; line-height: 1.1; font-weight: 900; }
+        .hero h1 span { color: var(--blue-vibrant); text-shadow: 0 0 30px rgba(0,210,255,0.4); }
+
+        /* BOTÓN CON ONDAS AL PASAR EL MOUSE (HOVER RIPPLE) */
+        .btn-main { 
+            position: relative; overflow: hidden;
+            background: linear-gradient(90deg, var(--blue-deep), var(--blue-vibrant)); 
+            color: white; padding: 20px 50px; border-radius: 50px; text-decoration: none; 
+            font-weight: 800; text-transform: uppercase; transition: 0.4s;
+            display: inline-block; margin-top: 40px; border: none; cursor: pointer;
+        }
+
+        .btn-main:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 210, 255, 0.6);
+        }
+
+        /* Efecto de ondas de choque */
+        .btn-main::after {
+            content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0;
+            background: rgba(255, 255, 255, 0.2); border-radius: 50%;
+            transform: translate(-50%, -50%); transition: width 0.6s, height 0.6s;
+        }
+        .btn-main:hover::after { width: 300px; height: 300px; opacity: 0; }
+
+        /* OLAS ANIMADAS */
+        .waves { position: absolute; bottom: 0; width: 100%; height: 15vh; min-height: 100px; z-index: 15; }
         .parallax > use { animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; }
         .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
         .parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
@@ -47,46 +90,21 @@
         .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
         @keyframes move-forever { 0% { transform: translate3d(-90px,0,0); } 100% { transform: translate3d(85px,0,0); } }
 
-        /* TOP 0.5% DINÁMICO */
-        .top-rank { 
-            font-size: 1.2rem; font-weight: 900; color: var(--blue-vibrant);
-            padding: 10px 25px; border: 2px solid var(--blue-vibrant); border-radius: 50px;
-            animation: pulse-glow 2s infinite; margin-bottom: 20px;
-            display: inline-block; letter-spacing: 2px;
+        /* SECCIONES RESTANTES */
+        section { padding: 100px 10%; text-align: center; }
+        .stat-card { background: rgba(0, 210, 255, 0.05); padding: 40px; border-radius: 25px; border: 1px solid rgba(0, 210, 255, 0.2); transition: 0.4s; }
+        .stat-card:hover { border-color: var(--blue-vibrant); transform: translateY(-10px); }
+
+        /* BLOG PAGE */
+        #blog-page { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: var(--black); z-index: 6000; display: none; overflow-y: auto; padding: 80px 10%;
         }
+
         @keyframes pulse-glow {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
             70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(0, 210, 255, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
-        }
-
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); z-index: 10; margin: 0; }
-        .hero h1 span { color: var(--blue-vibrant); }
-
-        /* SECCIONES DINÁMICAS */
-        section { padding: 100px 10%; position: relative; z-index: 10; }
-        .bg-dark { background: var(--black); }
-        .bg-vibrant { background: var(--dark-grey); }
-
-        /* BLOG SUBPAGE */
-        #blog-page { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: var(--black); z-index: 6000; display: none; overflow-y: auto; padding: 50px 10%;
-        }
-
-        /* BOTONES */
-        .btn-main { 
-            background: linear-gradient(90deg, var(--blue-deep), var(--blue-vibrant)); 
-            color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; 
-            font-weight: bold; transition: 0.3s; z-index: 10; margin-top: 30px;
-        }
-        .btn-main:hover { box-shadow: 0 0 30px var(--blue-vibrant); transform: scale(1.05); }
-
-        /* CHATBOT */
-        #chat-widget { 
-            position: fixed; bottom: 110px; right: 30px; width: 300px; 
-            background: var(--dark-grey); border: 1px solid var(--blue-vibrant); 
-            border-radius: 20px; display: none; flex-direction: column; z-index: 7000; 
         }
 
         .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; z-index: 5500; text-decoration: none; }
@@ -95,90 +113,56 @@
 <body>
 
     <header>
-        <div style="font-weight: 900; color: var(--blue-vibrant);">TOPMASTER OF</div>
+        <div style="font-weight: 900; color: var(--blue-vibrant); letter-spacing: 2px;">TOPMASTER OF</div>
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#resultados">Resultados</a>
             <a href="#modelos">Modelos</a>
-            <a href="#blog" onclick="openBlog(); return false;">Blog</a>
+            <a href="#" onclick="openBlog(); return false;">Blog</a>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
-        <div class="top-rank">TOP 0.5% GLOBAL</div>
-        <h1>Liderando tu <span>Crecimiento</span></h1>
-        <p style="z-index: 10; color: #94a3b8; max-width: 600px;">La nueva era de la gestión estratégica de contenido ha llegado. Privacidad, escala y resultados reales.</p>
-        <a href="https://wa.me/573217691379" class="btn-main">Consultoría Gratis</a>
+        <div class="hero-content">
+            <div class="top-rank">TOP 0.5% GLOBAL</div>
+            <h1>Escala al<br><span>Nivel Élite</span></h1>
+            <p>Estrategias de tráfico viral y gestión profesional de OnlyFans. Tu contenido, nuestra estrategia, resultados extraordinarios.</p>
+            <a href="https://wa.me/573217691379" class="btn-main">Auditoría Gratis</a>
+        </div>
 
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="parallax">
-        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0, 210, 255, 0.7)" />
-        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0, 210, 255, 0.5)" />
-        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0, 210, 255, 0.3)" />
-        <use xlink:href="#gentle-wave" x="48" y="7" fill="#020617" />
-        </g>
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+            <defs><path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+            <g class="parallax">
+                <use href="#wave-path" x="48" y="0" fill="rgba(0, 210, 255, 0.3)" />
+                <use href="#wave-path" x="48" y="3" fill="rgba(0, 210, 255, 0.5)" />
+                <use href="#wave-path" x="48" y="5" fill="rgba(0, 210, 255, 0.2)" />
+                <use href="#wave-path" x="48" y="7" fill="#020617" />
+            </g>
         </svg>
     </section>
 
-    <section id="resultados" class="bg-vibrant">
-        <h2 style="text-align: center; font-size: 2.5rem;">Resultados en Tiempo Real</h2>
-        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-top: 50px;">
-            <div style="text-align: center;">
-                <h3 style="font-size: 3rem; color: var(--blue-vibrant); margin: 0;">+40%</h3>
-                <p>Conversión de Mensajes</p>
-            </div>
-            <div style="text-align: center;">
-                <h3 style="font-size: 3rem; color: var(--blue-vibrant); margin: 0;">24/7</h3>
-                <p>Chatting Elite</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="modelos" class="bg-dark">
-        <h2 style="text-align: center;">Nuestras Marcas Asociadas</h2>
-        <div style="margin-top: 40px; border-left: 2px solid var(--blue-vibrant); padding-left: 30px;">
-            <h3>@veritoaguass</h3>
-            <p>Estrategia de tráfico viral implementada exitosamente.</p>
-        </div>
-        <div style="margin-top: 40px; border-left: 2px solid var(--blue-vibrant); padding-left: 30px;">
-            <h3>@soyandrearamz</h3>
-            <p>Optimización de cuenta y branding de lujo.</p>
+    <section id="resultados">
+        <div class="stat-card">
+            <h2 style="font-size: 3.5rem; color: var(--blue-vibrant); margin:0;">+300%</h2>
+            <p style="font-size: 1.5rem; color: #94a3b8;">Incremento de facturación promedio</p>
         </div>
     </section>
 
     <div id="blog-page">
-        <button onclick="closeBlog()" style="background:var(--blue-vibrant); border:none; padding:10px 20px; border-radius:50px; cursor:pointer; font-weight:bold;">VOLVER</button>
-        <h1 style="margin-top: 40px;">Portal de <span>Actualizaciones</span></h1>
-        <div style="background: var(--dark-grey); padding: 30px; border-radius: 20px; margin-top: 20px;">
-            <h3>Premios TopMaster 2025</h3>
-            <p>Celebrando el éxito de nuestras modelos en la gala anual...</p>
+        <button onclick="closeBlog()" style="background:var(--blue-vibrant); border:none; padding:12px 30px; border-radius:50px; cursor:pointer; font-weight:bold;">← VOLVER</button>
+        <h1 style="margin-top: 50px; font-size: 3rem;">TopMaster <span>Journal</span></h1>
+        <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; margin-top: 30px; text-align: left;">
+            <span style="color:var(--blue-vibrant)">Actualización 2025</span>
+            <h2>Cómo optimizar el algoritmo de TikTok para OFM</h2>
+            <p>Análisis profundo sobre los cambios en la visibilidad de contenido...</p>
         </div>
     </div>
 
-    <button id="btn-bot" onclick="toggleChat()" style="position:fixed; bottom:30px; right:110px; width:65px; height:65px; border-radius:50%; background:var(--blue-deep); border:none; color:white; font-size:30px; cursor:pointer; z-index:5500;"><i class="fas fa-robot"></i></button>
     <a href="https://wa.me/573217691379" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-    <div id="chat-widget">
-        <div style="background:var(--blue-deep); padding:15px; border-radius:20px 20px 0 0;">Asistente Virtual</div>
-        <div style="padding:20px;">
-            <p style="font-size:0.8rem;">Duda frecuente:</p>
-            <button onclick="botAns('Ofrecemos gestión total y marketing viral.')" style="width:100%; padding:10px; margin-bottom:5px; background:#1e293b; color:white; border:none; border-radius:10px; cursor:pointer;">¿Qué hacen?</button>
-            <div id="bot-reply" style="margin-top:15px; color:var(--blue-vibrant); font-size:0.9rem;"></div>
-        </div>
-    </div>
 
     <script>
         function openBlog() { document.getElementById('blog-page').style.display = 'block'; }
         function closeBlog() { document.getElementById('blog-page').style.display = 'none'; }
-        function toggleChat() { 
-            const chat = document.getElementById('chat-widget');
-            chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
-        }
-        function botAns(t) { document.getElementById('bot-reply').innerText = "> " + t; }
     </script>
 </body>
 </html>
