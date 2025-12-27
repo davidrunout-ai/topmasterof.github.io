@@ -179,6 +179,63 @@
         .bot-btn { width: 100%; text-align: left; padding: 10px; margin-bottom: 8px; background: #1e293b; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.85rem; }
         #bot-reply-area { margin-top: 15px; padding: 15px; background: rgba(0,210,255,0.1); border-radius: 10px; display: none; border-left: 3px solid var(--blue-vibrant); }
 
+        /* SECCIÓN FAQ PREMIUM */
+        .faq-section { padding: 100px 5%; max-width: 900px; margin: 0 auto; }
+        .faq-container { display: flex; flex-direction: column; gap: 15px; }
+        
+        details {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        details[open] {
+            border-color: var(--blue-vibrant);
+            background: rgba(0, 210, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        summary {
+            padding: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: var(--text);
+        }
+
+        summary::after {
+            content: '\f078'; /* Icono flecha FontAwesome */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--blue-vibrant);
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-content {
+            padding: 0 25px 25px 25px;
+            line-height: 1.6;
+            color: #94a3b8;
+            font-size: 1rem;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         /* BOTONES FLOTANTES CIRCULARES CORREGIDOS */
         .wa-float { 
             position: fixed; bottom: 30px; right: 30px; background: #25d366; 
@@ -259,6 +316,57 @@
         <div class="carousel-wrapper">
             <div class="carousel-track" id="track">
             </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section reveal">
+        <div class="services-title">
+            <h2>Preguntas <span>Frecuentes</span></h2>
+            <p>Resolvemos tus dudas para que empieces a escalar tu cuenta hoy mismo.</p>
+        </div>
+
+        <div class="faq-container">
+            <details>
+                <summary>¿Cuánto tiempo tarda en verse el primer resultado?</summary>
+                <div class="faq-content">
+                    Esto depende de tu presencia actual, pero incluso sin seguidores, logramos resultados en las primeras semanas. Modelos desde cero suelen generar entre $500 y $5,000 en su primer mes con nuestras estrategias.
+                </div>
+            </details>
+
+            <details>
+                <summary>¿Qué porcentaje se queda la agencia?</summary>
+                <div class="faq-content">
+                    Trabajamos bajo un esquema de comisión por resultados. Si tú no ganas, nosotros tampoco. El porcentaje se define tras la auditoría inicial de tu perfil.
+                </div>
+            </details>
+
+            <details>
+                <summary>¿Puedo trabajar sin mostrar mi cara?</summary>
+                <div class="faq-content">
+                    Totalmente. Gestionamos múltiples cuentas exitosas bajo la modalidad "Faceless" (sin rostro), utilizando estrategias de marketing específicas para este nicho.
+                </div>
+            </details>
+
+            <details>
+                <summary>¿Cómo mantienen mi anonimato y seguridad?</summary>
+                <div class="faq-content">
+                    Implementamos bloqueo por IP y GPS para que tu contenido no sea visible en tu país o regiones específicas. Además, contamos con protección DMCA contra filtraciones.
+                </div>
+            </details>
+
+            <details>
+                <summary>¿Necesito equipo o cámaras profesionales?</summary>
+                <div class="faq-content">
+                    No. Solo necesitas un celular con una cámara decente. Nosotros nos encargamos de guiarte en los ángulos y editar el contenido para que luzca profesional y viral.
+                </div>
+            </details>
+
+            <details>
+                <summary>¿Qué pasa si filtran mi contenido?</summary>
+                <div class="faq-content">
+                    Contamos con un equipo legal y herramientas tecnológicas que monitorean la red 24/7 para eliminar cualquier contenido filtrado de forma inmediata mediante reclamos de derechos de autor.
+                </div>
+            </details>
         </div>
     </section>
 
