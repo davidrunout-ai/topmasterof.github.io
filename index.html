@@ -7,9 +7,7 @@
     <title>TopMasterOF | OnlyFans Management & Marketing Élite</title>
     <meta name="description" content="Agencia líder en OFM. Marketing viral, Chatting profesional 24/7 y seguridad absoluta. Escalamos creadoras al Top 0.5% global.">
     
-    <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
         :root { 
             --blue-vibrant: #00d2ff; 
@@ -17,8 +15,9 @@
             --black: #020617; 
             --dark-grey: #0f172a; 
             --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(0, 210, 255, 0.2);
+            --border: rgba(0, 210, 255, 0.15);
             --text: #f8fafc; 
+            --gold: #ffcc00;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,66 +30,91 @@
             display: flex; justify-content: space-between; align-items: center;
             z-index: 5000; border-bottom: 1px solid var(--border);
         }
-        header .logo { font-weight: 900; font-size: 1.5rem; color: var(--blue-vibrant); text-transform: uppercase; }
-        header nav a { color: white; text-decoration: none; margin-left: 25px; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        header .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; color: var(--blue-vibrant); text-transform: uppercase; }
+        header nav a { color: white; text-decoration: none; margin-left: 25px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
 
-        /* HERO CON OLAS */
+        /* ANIMACIONES DE REVELACIÓN (SCROLL) */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* SECCIÓN 1: HERO */
         .hero { 
             position: relative; height: 100vh; width: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; overflow: hidden;
             background: radial-gradient(circle at center, #001e4d 0%, #020617 100%);
         }
-        .top-rank { font-size: 0.8rem; font-weight: 800; color: var(--blue-vibrant); padding: 10px 30px; border: 1px solid var(--blue-vibrant); border-radius: 50px; margin-bottom: 30px; letter-spacing: 5px; }
-        .hero h1 { font-size: clamp(3.5rem, 12vw, 6rem); font-weight: 900; line-height: 0.9; }
+        .hero-content { z-index: 20; animation: zoomIn 1.5s ease; }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+        .top-rank { 
+            font-size: 0.8rem; font-weight: 800; color: var(--blue-vibrant);
+            padding: 10px 30px; border: 1px solid var(--blue-vibrant); border-radius: 50px;
+            margin-bottom: 30px; letter-spacing: 5px; display: inline-block;
+        }
+        .hero h1 { font-size: clamp(3.5rem, 12vw, 6rem); font-weight: 900; line-height: 0.9; margin-bottom: 20px; }
         .hero h1 span { color: var(--blue-vibrant); }
 
-        .waves { position: absolute; bottom: 0; width: 100%; height: 15vh; z-index: 10; }
+        /* OLAS SVG REALISTAS */
+        .waves { position: absolute; bottom: 0; width: 100%; height: 15vh; min-height: 100px; z-index: 10; }
         .parallax > use { animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; }
         @keyframes move-forever { 0% { transform: translate3d(-90px,0,0); } 100% { transform: translate3d(85px,0,0); } }
 
-        /* SECCIONES */
+        /* BOTÓN SÓNICO */
+        .btn-sonic { 
+            position: relative; background: var(--blue-deep); color: white; 
+            padding: 22px 55px; border-radius: 50px; text-decoration: none; 
+            font-weight: 800; text-transform: uppercase; border: none; cursor: pointer;
+            margin-top: 45px; display: inline-block; z-index: 25;
+        }
+        .btn-sonic:hover::before {
+            content: ''; position: absolute; top: 50%; left: 50%; width: 100%; height: 100%;
+            border: 2px solid var(--blue-vibrant); border-radius: 50px;
+            transform: translate(-50%, -50%); animation: sonicWave 0.6s ease-out;
+        }
+        @keyframes sonicWave { 0% { width: 100%; height: 100%; opacity: 1; } 100% { width: 180%; height: 280%; opacity: 0; } }
+
+        /* SECCIÓN SERVICIOS */
         section { padding: 120px 8%; text-align: center; }
-        h2 { font-size: 3rem; font-weight: 900; margin-bottom: 50px; }
+        h2 { font-size: 3rem; font-weight: 900; margin-bottom: 50px; text-transform: uppercase; }
         h2 span { color: var(--blue-vibrant); }
 
-        /* SERVICIOS */
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .feature-card { 
             background: var(--glass); border: 1px solid var(--border); padding: 40px; 
-            border-radius: 40px; backdrop-filter: blur(10px); transition: 0.4s; text-align: left;
+            border-radius: 40px; backdrop-filter: blur(10px); transition: 0.4s;
+            text-align: left; opacity: 0; transform: translateX(-50px);
         }
-        .feature-card:hover { border-color: var(--blue-vibrant); background: rgba(0, 210, 255, 0.08); transform: scale(1.02); }
+        .feature-card.active-slide { opacity: 1; transform: translateX(0); }
 
-        /* DISEÑO DE COMENTARIOS (ESTILO TARJETA ELITE) */
-        .carousel-section { background: #010409; position: relative; }
-        .carousel-container { position: relative; max-width: 900px; margin: 0 auto; overflow: hidden; padding: 20px; }
-        .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+        /* SECCIÓN TESTIMONIOS (ESTRELLAS Y DISEÑO AMPLIO) */
+        .carousel-section { background: var(--dark-grey); overflow: hidden; }
+        .carousel-container { position: relative; max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .carousel-track { display: flex; gap: 40px; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
         
         .testimonio-card { 
-            min-width: 100%; padding: 60px 40px; 
-            background: linear-gradient(145deg, #0f172a, #020617);
-            border: 2px solid var(--border); border-radius: 50px;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.1);
-            position: relative;
+            min-width: 100%; padding: 60px; 
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            border: 1px solid var(--border); border-radius: 50px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            text-align: center;
         }
-        .testimonio-card::before {
-            content: "\f10d"; font-family: "Font Awesome 5 Free"; font-weight: 900;
-            position: absolute; top: 30px; left: 40px; font-size: 3rem; color: rgba(0, 210, 255, 0.1);
-        }
-        .testimonio-card p { font-size: 1.5rem; line-height: 1.6; color: #f8fafc; font-weight: 300; margin-bottom: 30px; position: relative; }
-        .testimonio-card h4 { color: var(--blue-vibrant); font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+        .stars { color: var(--gold); font-size: 1.5rem; margin-bottom: 20px; letter-spacing: 5px; }
+        .testimonio-card p { font-size: 1.8rem; font-style: italic; font-weight: 300; line-height: 1.4; color: #fff; margin-bottom: 30px; }
+        .testimonio-card .model-name { color: var(--blue-vibrant); font-weight: 800; font-size: 1.3rem; text-transform: uppercase; }
+        .testimonio-card .score { display: block; margin-top: 10px; font-size: 0.9rem; opacity: 0.6; }
 
         /* CHATBOT */
         #chat-widget { 
             position: fixed; bottom: 110px; right: 30px; width: 380px; 
             background: #0f172a; border: 1px solid var(--blue-vibrant); 
             border-radius: 30px; display: none; flex-direction: column; z-index: 9000;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
         }
         #chat-header { background: var(--blue-deep); padding: 25px; border-radius: 30px 30px 0 0; font-weight: 900; display: flex; justify-content: space-between; }
         #chat-body { padding: 20px; max-height: 400px; overflow-y: auto; scroll-behavior: smooth; }
-        .bot-btn { width: 100%; text-align: left; padding: 12px; margin-bottom: 8px; background: #1e293b; color: white; border: 1px solid transparent; border-radius: 12px; cursor: pointer; }
-        #bot-reply-area { margin-top: 20px; padding: 20px; background: rgba(0,210,255,0.1); border-radius: 15px; display: none; border-left: 4px solid var(--blue-vibrant); }
+        .bot-btn { width: 100%; text-align: left; padding: 12px; margin-bottom: 8px; background: #1e293b; color: white; border: 1px solid transparent; border-radius: 12px; cursor: pointer; font-size: 0.85rem; }
+        #bot-reply-area { margin-top: 20px; padding: 20px; background: rgba(0,210,255,0.1); border-radius: 15px; display: none; }
 
         .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; z-index: 8000; text-decoration: none; }
     </style>
@@ -108,11 +132,11 @@
     </header>
 
     <section id="inicio" class="hero">
-        <div class="reveal">
+        <div class="hero-content">
             <div class="top-rank">ELITE RANKING TOP 0.5%</div>
-            <h1>Gestión de<br><span>Modelos Élite</span></h1>
-            <p style="margin-top:20px; color:#94a3b8; max-width:600px;">Llevamos tu carrera al siguiente nivel con estrategias de marketing viral y ventas automatizadas.</p>
-            <a href="https://wa.me/573217691379" class="btn-sonic" style="background:var(--blue-deep); color:white; padding:20px 40px; border-radius:50px; text-decoration:none; display:inline-block; margin-top:30px; font-weight:800;">APLICAR AHORA</a>
+            <h1>Escala al<br><span>Nivel Élite</span></h1>
+            <p>Estrategia avanzada, gestión absoluta y tráfico viral masivo.</p>
+            <a href="https://wa.me/573217691379" class="btn-sonic">Aplicar Ahora</a>
         </div>
 
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
@@ -120,30 +144,32 @@
             <g class="parallax">
                 <use href="#wave-path" x="48" y="0" fill="rgba(0, 210, 255, 0.1)" />
                 <use href="#wave-path" x="48" y="3" fill="rgba(0, 210, 255, 0.2)" />
+                <use href="#wave-path" x="48" y="5" fill="rgba(0, 210, 255, 0.3)" />
                 <use href="#wave-path" x="48" y="7" fill="#020617" />
             </g>
         </svg>
     </section>
 
-    <section id="servicios">
-        <h2 class="reveal">Servicios <span>Premium</span></h2>
+    <section id="servicios" class="reveal">
+        <div class="top-rank" style="margin-bottom: 20px; letter-spacing: 2px;">POTENCIAL ILIMITADO</div>
+        <h2>Nuestra <span>Ingeniería</span></h2>
         <div class="feature-grid">
-            <div class="feature-card reveal"><i class="fas fa-chart-line"></i><h3>Marketing Viral</h3><p>Dominamos TikTok e Instagram para atraer fans reales cada minuto.</p></div>
-            <div class="feature-card reveal"><i class="fas fa-comments-dollar"></i><h3>Chatting 24/7</h3><p>Nuestro equipo vende por ti mientras descansas o creas contenido.</p></div>
-            <div class="feature-card reveal"><i class="fas fa-user-shield"></i><h3>Seguridad Total</h3><p>Bloqueo por GPS y protección legal contra filtraciones.</p></div>
+            <div class="feature-card" style="transition-delay: 0.1s;"><i class="fas fa-chart-line"></i><h3>Marketing Viral</h3><p>Dominamos TikTok e Instagram para flujo constante de fans.</p></div>
+            <div class="feature-card" style="transition-delay: 0.2s;"><i class="fas fa-comments-dollar"></i><h3>Chatting Pro</h3><p>Ventas 24/7 con expertos en persuasión y psicología.</p></div>
+            <div class="feature-card" style="transition-delay: 0.3s;"><i class="fas fa-user-shield"></i><h3>Privacidad</h3><p>Bloqueo geográfico IP/GPS. Tu anonimato es sagrado.</p></div>
         </div>
     </section>
 
-    <section id="testimonios" class="carousel-section">
-        <h2 class="reveal">Lo que dicen nuestras <span>Estrellas</span></h2>
-        <div class="carousel-container reveal">
+    <section id="testimonios" class="carousel-section reveal">
+        <h2>Opiniones de <span>Éxito</span></h2>
+        <div class="carousel-container">
             <div class="carousel-track" id="track">
                 </div>
         </div>
     </section>
 
     <div id="chat-widget">
-        <div id="chat-header"><span>Asistente TopMaster</span><span onclick="toggleChat()" style="cursor:pointer">×</span></div>
+        <div id="chat-header"><span>TopMaster Assistant</span><span onclick="toggleChat()" style="cursor:pointer">×</span></div>
         <div id="chat-body">
             <div id="qa-list"></div>
             <div id="bot-reply-area"><p id="bot-reply-text"></p></div>
@@ -154,61 +180,90 @@
     <a href="https://wa.me/573217691379" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        // Configuración de ScrollReveal (Transiciones al bajar)
-        ScrollReveal().reveal('.reveal', {
-            delay: 200,
-            distance: '50px',
-            duration: 1000,
-            origin: 'bottom',
-            interval: 200,
-            reset: true // Para que la animación se repita al subir y bajar
+        // Reveal on Scroll
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.reveal, .feature-card');
+            reveals.forEach(el => {
+                if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active', 'active-slide');
+            });
         });
 
-        // 20 Comentarios en Español
+        // 20 Comentarios con Estrellas y Espaciado
         const comments = [
-            ["@veritoaguass", "Tripliqué mis ganancias en el primer mes de gestión."],
-            ["@soyandrearamz", "Seguridad absoluta. Nadie en mi país sabe lo que hago."],
-            ["@luna_fit", "Por fin tengo tiempo libre mientras la agencia factura."],
-            ["@diana_vip", "El tráfico que envían desde TikTok es una locura."],
-            ["@bella_sky", "El equipo de chatting es súper profesional."],
-            ["@valery_gold", "Me ayudaron a crear una marca de lujo desde cero."],
-            ["@cloe_luxury", "Son expertos cerrando ventas PPV."],
-            ["@nina_star", "Transparencia total con los pagos, muy recomendados."],
-            ["@mika_red", "Crecimiento constante sin comprar bots."],
-            ["@zaira_of", "Estar en el Top 0.5% ya no es un sueño."],
-            ["@ruby_elite", "Cero filtraciones gracias a su protección legal."],
-            ["@ari_brand", "Sientes que realmente se preocupan por tu éxito."],
-            ["@gina_top", "La mejor decisión para mi carrera."],
-            ["@lara_flow", "El soporte 24/7 es real, siempre están ahí."],
-            ["@moni_lux", "Excelente asesoría en creación de contenido."],
-            ["@sofia_pro", "Me liberaron de 8 horas diarias de trabajo."],
-            ["@elena_vip", "Estrategias de marketing que sí funcionan."],
-            ["@karla_rose", "Mi cuenta es una máquina de dinero ahora."],
-            ["@mery_star", "Atención personalizada y resultados rápidos."],
-            ["@jade_elite", "TopMasterOF es el aliado definitivo."]
+            ["@veritoaguass", "La gestión de mensajes triplicó mis ingresos en tiempo récord.", "5.0"],
+            ["@soyandrearamz", "Seguridad absoluta. Bloquearon todo mi país perfectamente.", "5.0"],
+            ["@luna_fit", "Por fin puedo viajar mientras ellos cierran todas mis ventas.", "4.9"],
+            ["@diana_vip", "El tráfico de TikTok que generan es masivo y real.", "5.0"],
+            ["@bella_sky", "Atención profesional 24/7. Nunca me siento sola.", "5.0"],
+            ["@valery_gold", "Me ayudaron con el branding y ahora soy marca de lujo.", "5.0"],
+            ["@cloe_luxury", "Los mejores cerradores de ventas. El PPV voló.", "4.9"],
+            ["@nina_star", "Transparencia total en los pagos. Muy recomendados.", "5.0"],
+            ["@mika_red", "Su estrategia de contenido viral es simplemente superior.", "5.0"],
+            ["@zaira_of", "Escalé al Top 0.5% en solo dos meses con ellos.", "5.0"],
+            ["@ruby_elite", "Protección DMCA impecable. Cero contenido filtrado.", "5.0"],
+            ["@ari_brand", "Sientes que son tu equipo de verdad, no solo una agencia.", "5.0"],
+            ["@gina_top", "La mejor decisión para mi carrera como creadora.", "5.0"],
+            ["@lara_flow", "Crecimiento orgánico constante sin bots, todo real.", "4.8"],
+            ["@moni_lux", "Trato exclusivo. No eres un número, eres una estrella.", "5.0"],
+            ["@sofia_pro", "Expertos en psicología de ventas. Mis propinas subieron.", "5.0"],
+            ["@elena_vip", "El proceso de inicio fue rápido y muy profesional.", "5.0"],
+            ["@karla_rose", "Me liberaron todo el día para crear contenido mejor.", "5.0"],
+            ["@mery_star", "Mis ganancias mensuales se dispararon un 400%.", "5.0"],
+            ["@jade_elite", "TopMasterOF es el aliado definitivo en esta industria.", "5.0"]
         ];
 
         const track = document.getElementById('track');
         comments.forEach(c => {
             const card = document.createElement('div');
             card.className = 'testimonio-card';
-            card.innerHTML = `<p>"${c[1]}"</p><h4>${c[0]}</h4>`;
+            card.innerHTML = `
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"${c[1]}"</p>
+                <span class="model-name">${c[0]}</span>
+                <span class="score">Puntaje: ${c[2]} / 5.0 - Verificado</span>
+            `;
             track.appendChild(card);
         });
 
         let index = 0;
         setInterval(() => {
             index = (index + 1) % comments.length;
-            track.style.transform = `translateX(-${index * 100}%)`;
+            // Cálculo de desplazamiento considerando el GAP de 40px
+            track.style.transform = `translateX(calc(-${index * 100}% - ${index * 40}px))`;
         }, 3000);
 
-        // Chatbot con Scroll Automático
+        // Chatbot 30 Q&A con Auto-Scroll
         const qa = [
-            ["¿Qué hacen?", "Gestionamos tu OnlyFans 24/7: marketing, chatting y contenido."],
-            ["¿Es seguro?", "Bloqueo por país/IP y protección legal DMCA incluida."],
-            ["¿Comisión?", "Se define tras auditar tu perfil."],
-            ["¿Cómo empiezo?", "Haz clic en el botón de WhatsApp."]
-            // Puedes añadir las 30 preguntas aquí siguiendo este formato
+            ["¿Qué hacen?", "Manejo total 24/7: marketing, chatting y contenido."],
+            ["¿Es seguro?", "Bloqueo por país e IP con protección legal."],
+            ["¿Comisión?", "Se define tras auditar tu potencial actual."],
+            ["¿Necesito fans?", "No. Nosotros creamos el tráfico desde cero."],
+            ["¿Chatting?", "Expertos cierran ventas mientras tú descansas."],
+            ["¿Confidencial?", "Contrato legal de confidencialidad total."],
+            ["¿Bloqueo ciudad?", "Sí. Bloqueamos cualquier región que desees."],
+            ["¿Cómo aplico?", "Haciendo clic en el botón de WhatsApp."],
+            ["¿Editan videos?", "Sí. Optimizamos todo para ser viral."],
+            ["¿Cara obligatoria?", "No. Hay nichos faceless muy rentables."],
+            ["¿Pagos?", "Sigues el ciclo oficial de la plataforma."],
+            ["¿Ads?", "Invertimos en tu tráfico viral inicial."],
+            ["¿Redes?", "TikTok, Instagram, X y Reddit."],
+            ["¿Dueña cuenta?", "Siempre. Tienes acceso total 24/7."],
+            ["¿Principiantes?", "Sí. Escalamos cuentas desde cero."],
+            ["¿Equipo?", "Un iPhone reciente es suficiente."],
+            ["¿Legal?", "Expertos en DMCA y propiedad intelectual."],
+            ["¿Rentable?", "Más que nunca con gestión profesional."],
+            ["¿Permanencia?", "Se detalla en el contrato mutuo."],
+            ["¿Top 0.5%?", "Ranking élite de ingresos mundiales."],
+            ["¿Lencería?", "Damos guías de estilo y estética premium."],
+            ["¿Subida fotos?", "Nube cifrada ultra segura."],
+            ["¿Marketing X?", "Poseemos redes masivas de tráfico."],
+            ["¿Feriados?", "Trabajamos los 365 días del año."],
+            ["¿Auditoría?", "Análisis de 30 días totalmente gratis."],
+            ["¿Propinas?", "Se suman a tu facturación total."],
+            ["¿Trabajo sola?", "Tú creas contenido, nosotros el dinero."],
+            ["¿Oficinas?", "Equipo remoto élite global."],
+            ["¿Journal?", "Premios y noticias para modelos."],
+            ["¿Es gratis?", "La consultoría inicial no tiene costo."]
         ];
 
         const qaList = document.getElementById('qa-list');
