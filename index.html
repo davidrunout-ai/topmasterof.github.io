@@ -34,25 +34,40 @@
         .reveal { opacity: 0; transform: translateY(80px); transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* HERO SECTION */
+        /* HERO SECTION CON EFECTO DE AGUA VIBRANTE */
         .hero { 
             position: relative; height: 100vh; width: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; overflow: hidden;
-            background: #020617;
+            background: #020617; /* Fondo base */
         }
+
+        /* Capas de ondas de luz (Cáusticas) */
+        .hero::before, .hero::after {
+            content: ""; position: absolute; top: -10%; left: -10%; width: 120%; height: 120%;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(0, 69, 219, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(0, 210, 255, 0.15) 0%, transparent 40%);
+            filter: blur(30px);
+            z-index: 1;
+        }
+
         .hero::before {
-            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle at center, rgba(0, 210, 255, 0.08) 0%, transparent 40%),
-                        radial-gradient(circle at 30% 30%, rgba(0, 69, 219, 0.05) 0%, transparent 50%);
-            animation: water-waves 12s linear infinite;
-            pointer-events: none; z-index: 1;
+            animation: water-flow 8s ease-in-out infinite alternate;
         }
-        @keyframes water-waves {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.1); }
-            100% { transform: rotate(360deg) scale(1); }
+
+        .hero::after {
+            animation: water-flow 12s ease-in-out infinite alternate-reverse;
+            opacity: 0.6;
         }
+
+        @keyframes water-flow {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(-5%, 5%) scale(1.1) rotate(2deg); }
+            100% { transform: translate(5%, -5%) scale(1) rotate(-2deg); }
+        }
+
         .hero-content { z-index: 20; position: relative; }
 
         /* BOTÓN CON ONDA DE SONIDO CONTINUA */
