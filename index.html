@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>TopMasterOF | OnlyFans Management Agency & OFM Élite</title>
-    <meta name="description" content="La agencia de OFM más buscada: Gestión de OnlyFans, Marketing Viral en TikTok/Reels y Chatting 24/7. Escalamos tu marca al Top 0.5% Global.">
-    <meta name="keywords" content="OnlyFans Management, OFM Agency, Agencia OnlyFans España, Agencia OnlyFans Colombia, Chatting 24/7 OnlyFans, Tráfico Viral OF">
+    <title>TopMasterOF | Agencia Élite OFM & Gestión 2025</title>
+    <meta name="description" content="Agencia líder en OnlyFans Management. Marketing viral, Chatting 24/7 y seguridad total. Escalamos creadoras al Top 0.5% Global.">
+    <meta name="keywords" content="OnlyFans Management Agency, OFM Agency, Chatting 24/7, Tráfico Viral OnlyFans, Agencia Modelos OnlyFans">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -18,129 +18,158 @@
             --text: #f8fafc; 
         }
 
-        body { background-color: var(--black); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
+        body { background-color: var(--black); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* SECCIÓN 1: HERO DINÁMICO (Fondo en movimiento) */
+        /* TABLA DE CONTENIDO (Header) */
+        header { 
+            position: fixed; top: 0; width: 100%; padding: 15px 5%; 
+            background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(15px);
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 5000; border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+        }
+        header nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+        header nav a:hover { color: var(--blue-vibrant); }
+
+        /* SECCIÓN 1: HERO CON EFECTO OLAS */
         .hero { 
-            height: 100vh; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            text-align: center;
-            background: linear-gradient(-45deg, #020617, #0f172a, #0045db, #020617);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            padding: 20px;
-        }
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            position: relative; height: 100vh; width: 100%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; overflow: hidden;
+            background: linear-gradient(to bottom, #020617 0%, #001e4d 100%);
         }
 
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1; margin-bottom: 20px; }
-        .hero h1 span { color: var(--blue-vibrant); text-shadow: 0 0 30px rgba(0,210,255,0.5); }
-        .hero p { font-size: 1.2rem; color: #94a3b8; max-width: 700px; margin-bottom: 30px; }
+        /* Animación de Olas */
+        .waves { position: absolute; bottom: 0; width: 100%; height: 15vh; min-height: 100px; max-height: 150px; }
+        .parallax > use { animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; }
+        .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+        .parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+        .parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+        .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+        @keyframes move-forever { 0% { transform: translate3d(-90px,0,0); } 100% { transform: translate3d(85px,0,0); } }
 
-        /* SECCIÓN 2: RESULTADOS (Contenido Dinámico) */
-        .resultados { padding: 100px 5%; background: var(--dark-grey); text-align: center; }
-        .stats-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
-        .stat-card { background: rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; border: 1px solid var(--blue-vibrant); min-width: 250px; }
-        .stat-card h2 { font-size: 3rem; color: var(--blue-vibrant); margin: 0; }
+        /* TOP 0.5% DINÁMICO */
+        .top-rank { 
+            font-size: 1.2rem; font-weight: 900; color: var(--blue-vibrant);
+            padding: 10px 25px; border: 2px solid var(--blue-vibrant); border-radius: 50px;
+            animation: pulse-glow 2s infinite; margin-bottom: 20px;
+            display: inline-block; letter-spacing: 2px;
+        }
+        @keyframes pulse-glow {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(0, 210, 255, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+        }
 
-        /* SECCIÓN 3: MODELOS Y TESTIMONIOS */
-        .modelos { padding: 100px 5%; background: var(--black); }
-        .modelo-box { border-left: 4px solid var(--blue-deep); padding-left: 20px; margin-bottom: 40px; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); z-index: 10; margin: 0; }
+        .hero h1 span { color: var(--blue-vibrant); }
 
-        /* SECCIÓN 4: BLOG PRINCIPAL (Vista previa) */
-        .blog-preview { padding: 100px 5%; background: var(--dark-grey); }
-        .blog-link { color: var(--blue-vibrant); cursor: pointer; text-decoration: underline; font-weight: bold; }
+        /* SECCIONES DINÁMICAS */
+        section { padding: 100px 10%; position: relative; z-index: 10; }
+        .bg-dark { background: var(--black); }
+        .bg-vibrant { background: var(--dark-grey); }
 
-        /* SUBPÁGINA DEL BLOG (Oculta por defecto) */
+        /* BLOG SUBPAGE */
         #blog-page { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: var(--black); z-index: 3000; display: none; overflow-y: auto; padding: 50px 5%;
+            background: var(--black); z-index: 6000; display: none; overflow-y: auto; padding: 50px 10%;
         }
 
         /* BOTONES */
         .btn-main { 
             background: linear-gradient(90deg, var(--blue-deep), var(--blue-vibrant)); 
-            color: white; padding: 20px 45px; border-radius: 50px; text-decoration: none; 
-            font-weight: 800; text-transform: uppercase; transition: 0.3s;
+            color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; 
+            font-weight: bold; transition: 0.3s; z-index: 10; margin-top: 30px;
         }
-        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 10px 40px rgba(0,210,255,0.4); }
+        .btn-main:hover { box-shadow: 0 0 30px var(--blue-vibrant); transform: scale(1.05); }
 
         /* CHATBOT */
         #chat-widget { 
-            position: fixed; bottom: 100px; right: 30px; width: 320px; 
+            position: fixed; bottom: 110px; right: 30px; width: 300px; 
             background: var(--dark-grey); border: 1px solid var(--blue-vibrant); 
-            border-radius: 20px; display: none; flex-direction: column; z-index: 4000; 
+            border-radius: 20px; display: none; flex-direction: column; z-index: 7000; 
         }
 
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; z-index: 3500; text-decoration: none; }
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; z-index: 5500; text-decoration: none; }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <h1>Escala al <span>Top 0.5%</span></h1>
-        <p>Lideramos la nueva era del OFM. Gestión estratégica, privacidad absoluta y crecimiento financiero exponencial para creadoras de alto nivel.</p>
-        <a href="https://wa.me/573217691379" class="btn-main">Aplicar Ahora</a>
+    <header>
+        <div style="font-weight: 900; color: var(--blue-vibrant);">TOPMASTER OF</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#resultados">Resultados</a>
+            <a href="#modelos">Modelos</a>
+            <a href="#blog" onclick="openBlog(); return false;">Blog</a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="top-rank">TOP 0.5% GLOBAL</div>
+        <h1>Liderando tu <span>Crecimiento</span></h1>
+        <p style="z-index: 10; color: #94a3b8; max-width: 600px;">La nueva era de la gestión estratégica de contenido ha llegado. Privacidad, escala y resultados reales.</p>
+        <a href="https://wa.me/573217691379" class="btn-main">Consultoría Gratis</a>
+
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0, 210, 255, 0.7)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0, 210, 255, 0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0, 210, 255, 0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#020617" />
+        </g>
+        </svg>
     </section>
 
-    <section class="resultados">
-        <h2>Resultados Imparables</h2>
-        <div class="stats-grid">
-            <div class="stat-card"><h2>+300%</h2><p>Aumento de Ingresos</p></div>
-            <div class="stat-card"><h2>24/7</h2><p>Chatting Profesional</p></div>
-            <div class="stat-card"><h2>0.5%</h2><p>Ranking Global</p></div>
+    <section id="resultados" class="bg-vibrant">
+        <h2 style="text-align: center; font-size: 2.5rem;">Resultados en Tiempo Real</h2>
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-top: 50px;">
+            <div style="text-align: center;">
+                <h3 style="font-size: 3rem; color: var(--blue-vibrant); margin: 0;">+40%</h3>
+                <p>Conversión de Mensajes</p>
+            </div>
+            <div style="text-align: center;">
+                <h3 style="font-size: 3rem; color: var(--blue-vibrant); margin: 0;">24/7</h3>
+                <p>Chatting Elite</p>
+            </div>
         </div>
     </section>
 
-    <section class="modelos">
-        <h2>Casos de Éxito Reales</h2>
-        <div class="modelo-box">
+    <section id="modelos" class="bg-dark">
+        <h2 style="text-align: center;">Nuestras Marcas Asociadas</h2>
+        <div style="margin-top: 40px; border-left: 2px solid var(--blue-vibrant); padding-left: 30px;">
             <h3>@veritoaguass</h3>
-            <p>"La estructura de trabajo y el marketing de TopMasterOF cambiaron mi carrera por completo."</p>
+            <p>Estrategia de tráfico viral implementada exitosamente.</p>
         </div>
-        <div class="modelo-box">
+        <div style="margin-top: 40px; border-left: 2px solid var(--blue-vibrant); padding-left: 30px;">
             <h3>@soyandrearamz</h3>
-            <p>"Seguridad y resultados. Es la única agencia que cumple lo que promete con transparencia."</p>
+            <p>Optimización de cuenta y branding de lujo.</p>
         </div>
-    </section>
-
-    <section class="blog-preview">
-        <h2>Novedades y Actualizaciones</h2>
-        <p>Mantente al día con las últimas estrategias de la industria.</p>
-        <div class="blog-link" onclick="openBlog()">Explorar Blog Completo →</div>
     </section>
 
     <div id="blog-page">
-        <button onclick="closeBlog()" style="background:var(--blue-vibrant); border:none; padding:10px 20px; border-radius:5px; cursor:pointer; margin-bottom:30px;">← Volver al Inicio</button>
-        <h1>TopMaster <span>Journal</span></h1>
-        
-        <div class="blog-post">
-            <h2>Novedades OFM 2025</h2>
-            <p>Descubre cómo el nuevo algoritmo de TikTok está beneficiando a nuestras modelos...</p>
-            <hr border="0" height="1px" background="#333">
-        </div>
-
-        <div class="blog-post">
-            <h2>Premios Agencia Élite</h2>
-            <p>TopMasterOF ha sido reconocida como la agencia de mayor crecimiento este trimestre...</p>
+        <button onclick="closeBlog()" style="background:var(--blue-vibrant); border:none; padding:10px 20px; border-radius:50px; cursor:pointer; font-weight:bold;">VOLVER</button>
+        <h1 style="margin-top: 40px;">Portal de <span>Actualizaciones</span></h1>
+        <div style="background: var(--dark-grey); padding: 30px; border-radius: 20px; margin-top: 20px;">
+            <h3>Premios TopMaster 2025</h3>
+            <p>Celebrando el éxito de nuestras modelos en la gala anual...</p>
         </div>
     </div>
+
+    <button id="btn-bot" onclick="toggleChat()" style="position:fixed; bottom:30px; right:110px; width:65px; height:65px; border-radius:50%; background:var(--blue-deep); border:none; color:white; font-size:30px; cursor:pointer; z-index:5500;"><i class="fas fa-robot"></i></button>
+    <a href="https://wa.me/573217691379" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <div id="chat-widget">
-        <div style="background:var(--blue-deep); padding:20px; border-radius:20px 20px 0 0;">Asistente TopMaster</div>
-        <div style="padding:20px;" id="chat-content">
-            <p>Selecciona una opción:</p>
-            <button onclick="botAns('Gestión integral, chatting 24/7 y marketing viral.')" style="width:100%; margin-bottom:10px; padding:10px; background:#334155; color:white; border:none; border-radius:10px; cursor:pointer;">¿Qué servicios ofrecen?</button>
-            <button onclick="botAns('Usamos contratos legales y Geoblocking avanzado.')" style="width:100%; margin-bottom:10px; padding:10px; background:#334155; color:white; border:none; border-radius:10px; cursor:pointer;">¿Es seguro mi contenido?</button>
-            <div id="bot-reply" style="margin-top:20px; color:var(--blue-vibrant);"></div>
+        <div style="background:var(--blue-deep); padding:15px; border-radius:20px 20px 0 0;">Asistente Virtual</div>
+        <div style="padding:20px;">
+            <p style="font-size:0.8rem;">Duda frecuente:</p>
+            <button onclick="botAns('Ofrecemos gestión total y marketing viral.')" style="width:100%; padding:10px; margin-bottom:5px; background:#1e293b; color:white; border:none; border-radius:10px; cursor:pointer;">¿Qué hacen?</button>
+            <div id="bot-reply" style="margin-top:15px; color:var(--blue-vibrant); font-size:0.9rem;"></div>
         </div>
     </div>
-
-    <button onclick="toggleChat()" style="position:fixed; bottom:30px; right:110px; width:65px; height:65px; border-radius:50%; background:var(--blue-deep); border:none; color:white; font-size:30px; cursor:pointer; z-index:3500;"><i class="fas fa-robot"></i></button>
-    <a href="https://wa.me/573217691379" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         function openBlog() { document.getElementById('blog-page').style.display = 'block'; }
@@ -149,7 +178,7 @@
             const chat = document.getElementById('chat-widget');
             chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
         }
-        function botAns(text) { document.getElementById('bot-reply').innerText = "> " + text; }
+        function botAns(t) { document.getElementById('bot-reply').innerText = "> " + t; }
     </script>
 </body>
 </html>
