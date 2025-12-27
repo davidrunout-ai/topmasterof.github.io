@@ -26,7 +26,7 @@
         }
         header nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: 0.3s; }
 
-        /* SECCIÓN 1: HERO (FONDO AGUA DINÁMICO) */
+        /* SECCIÓN 1: HERO */
         .hero { 
             position: relative; height: 100vh; width: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -37,12 +37,7 @@
         }
         @keyframes oceanFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-        .top-rank { 
-            font-size: 0.9rem; font-weight: 800; color: var(--blue-vibrant);
-            padding: 8px 25px; border: 1px solid var(--blue-vibrant); border-radius: 50px;
-            margin-bottom: 25px; letter-spacing: 4px;
-        }
-
+        .top-rank { font-size: 0.9rem; font-weight: 800; color: var(--blue-vibrant); padding: 8px 25px; border: 1px solid var(--blue-vibrant); border-radius: 50px; margin-bottom: 25px; letter-spacing: 4px; }
         .hero h1 { font-size: clamp(3rem, 10vw, 5.5rem); margin: 0; line-height: 1; font-weight: 900; }
         .hero h1 span { color: var(--blue-vibrant); }
 
@@ -58,42 +53,46 @@
             border: 2px solid var(--blue-vibrant); border-radius: 50px;
             transform: translate(-50%, -50%); animation: sonicWave 0.6s ease-out;
         }
-        @keyframes sonicWave {
-            0% { width: 100%; height: 100%; opacity: 1; }
-            100% { width: 160%; height: 250%; opacity: 0; }
-        }
+        @keyframes sonicWave { 0% { width: 100%; height: 100%; opacity: 1; } 100% { width: 160%; height: 250%; opacity: 0; } }
 
         /* OLAS SVG */
         .waves { position: absolute; bottom: 0; width: 100%; height: 12vh; min-height: 100px; z-index: 5; }
         .parallax > use { animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; }
-        .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
-        .parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
-        .parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
-        .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
         @keyframes move-forever { 0% { transform: translate3d(-90px,0,0); } 100% { transform: translate3d(85px,0,0); } }
 
-        /* SECCIONES DINÁMICAS */
-        section { padding: 120px 10%; text-align: center; border-bottom: 1px solid #1e293b; }
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-        .card-pro { background: #0f172a; padding: 40px; border-radius: 30px; border: 1px solid #1e293b; transition: 0.3s; }
-        .card-pro i { font-size: 2.5rem; color: var(--blue-vibrant); margin-bottom: 20px; }
+        /* CARRUSEL DE TESTIMONIOS */
+        .testimonios-section { padding: 100px 5%; background: var(--dark-grey); text-align: center; position: relative; overflow: hidden; }
+        .carousel-container { position: relative; max-width: 900px; margin: 50px auto; overflow: hidden; }
+        .carousel-track { display: flex; transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1); }
+        .testimonio-card { 
+            min-width: 100%; box-sizing: border-box; padding: 40px; 
+            background: #1e293b; border-radius: 30px; border: 1px solid #334155; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .testimonio-card h4 { color: var(--blue-vibrant); font-size: 1.4rem; margin-bottom: 15px; }
+        .testimonio-card p { font-style: italic; font-size: 1.1rem; line-height: 1.6; color: #cbd5e1; }
 
-        /* CHATBOT EXPANDIDO */
+        /* Botones del Carrusel */
+        .carousel-btn { 
+            position: absolute; top: 50%; transform: translateY(-50%); 
+            background: var(--blue-deep); color: white; border: none; 
+            width: 50px; height: 50px; border-radius: 50%; cursor: pointer; 
+            z-index: 100; font-size: 1.2rem; transition: 0.3s;
+        }
+        .carousel-btn:hover { background: var(--blue-vibrant); box-shadow: 0 0 20px var(--blue-vibrant); }
+        .btn-prev { left: 10px; }
+        .btn-next { right: 10px; }
+
+        /* CHATBOT */
         #chat-widget { 
             position: fixed; bottom: 110px; right: 30px; width: 340px; 
             background: #0f172a; border: 1px solid var(--blue-vibrant); 
             border-radius: 25px; display: none; flex-direction: column; z-index: 9000;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
         #chat-header { background: var(--blue-deep); padding: 20px; border-radius: 25px 25px 0 0; font-weight: bold; }
         #chat-body { padding: 20px; max-height: 400px; overflow-y: auto; text-align: left; }
-        .bot-btn { 
-            width: 100%; text-align: left; padding: 12px; margin-bottom: 8px; 
-            background: #1e293b; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 0.85rem;
-        }
-        .bot-btn:hover { background: var(--blue-deep); }
+        .bot-btn { width: 100%; text-align: left; padding: 12px; margin-bottom: 8px; background: #1e293b; color: white; border: none; border-radius: 10px; cursor: pointer; }
 
-        #blog-page { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--black); z-index: 9999; display: none; overflow-y: auto; padding: 80px 10%; }
         .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; z-index: 8000; text-decoration: none; }
     </style>
 </head>
@@ -103,15 +102,14 @@
         <div style="font-weight: 900; color: var(--blue-vibrant); letter-spacing: 2px;">TOPMASTER OF</div>
         <nav>
             <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#" onclick="openBlog(); return false;">Journal</a>
+            <a href="#testimonios">Comentarios</a>
+            <a href="https://wa.me/573217691379">Contacto</a>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
         <div class="top-rank">TOP 0.5% GLOBAL</div>
         <h1>Escala al<br><span>Nivel Élite</span></h1>
-        <p style="margin-top:20px; color:#94a3b8; max-width:600px;">Gestión de OnlyFans sin complicaciones. Tráfico viral, marketing de precisión y resultados verificables.</p>
         <a href="https://wa.me/573217691379" class="btn-sonic">Consultoría Gratis</a>
 
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
@@ -124,34 +122,44 @@
         </svg>
     </section>
 
-    <section id="servicios">
-        <h2>Ingeniería de <span>Crecimiento</span></h2>
-        <div class="grid-cards">
-            <div class="card-pro"><i class="fas fa-chart-line"></i><h3>Marketing Viral</h3><p>TikTok, Reels y X optimizados para conversión masiva.</p></div>
-            <div class="card-pro"><i class="fas fa-shield-alt"></i><h3>Seguridad 360</h3><p>Bloqueo geográfico y protección legal de contenido.</p></div>
-            <div class="card-pro"><i class="fas fa-comment-dots"></i><h3>Chatting Pro</h3><p>Especialistas en ventas 24/7 para maximizar propinas.</p></div>
+    <section id="testimonios" class="testimonios-section">
+        <h2>Lo que dicen nuestras <span>Modelos</span></h2>
+        
+        <div class="carousel-container">
+            <button class="carousel-btn btn-prev" onclick="moveSlide(-1)">❮</button>
+            <button class="carousel-btn btn-next" onclick="moveSlide(1)">❯</button>
+            
+            <div class="carousel-track" id="track">
+                <div class="testimonio-card"><h4>@veritoaguass</h4><p>"Mi carrera dio un giro total. La atención 24/7 es real."</p></div>
+                <div class="testimonio-card"><h4>@soyandrearamz</h4><p>"Seguridad impecable. Mi familia no sabe nada gracias a ellos."</p></div>
+                <div class="testimonio-card"><h4>@mar_fitof</h4><p>"En 2 meses logré lo que no hice en un año sola."</p></div>
+                <div class="testimonio-card"><h4>@luna_blue</h4><p>"El equipo de chatting es increíble, parecen psicólogos de ventas."</p></div>
+                <div class="testimonio-card"><h4>@valeria_vip</h4><p>"Los mejores en tráfico viral. Mis fans subieron un 400%."</p></div>
+                <div class="testimonio-card"><h4>@diana_gold</h4><p>"Transparencia total en los pagos. Muy profesionales."</p></div>
+                <div class="testimonio-card"><h4>@camila_top</h4><p>"Por fin puedo dedicarme solo a crear contenido."</p></div>
+                <div class="testimonio-card"><h4>@sofia_ofm</h4><p>"Me ayudaron con el equipo técnico y la iluminación."</p></div>
+                <div class="testimonio-card"><h4>@bella_vibe</h4><p>"La auditoría gratuita me abrió los ojos sobre mi perfil."</p></div>
+                <div class="testimonio-card"><h4>@elena_elite</h4><p>"Resultados desde la primera semana. Increíble."</p></div>
+                <div class="testimonio-card"><h4>@karla_rose</h4><p>"Privacidad al 100%. Me siento muy respaldada."</p></div>
+                <div class="testimonio-card"><h4>@mika_star</h4><p>"Su estrategia en TikTok es simplemente de otro nivel."</p></div>
+                <div class="testimonio-card"><h4>@gina_lux</h4><p>"He triplicado mis ingresos por mensajes directos."</p></div>
+                <div class="testimonio-card"><h4>@cloe_of</h4><p>"Un trato humano y profesional. Son los mejores."</p></div>
+                <div class="testimonio-card"><h4>@nina_exclusive</h4><p>"El soporte es constante, nunca me siento sola en esto."</p></div>
+                <div class="testimonio-card"><h4>@ruby_red</h4><p>"Me encanta que se encarguen de la parte aburrida del manejo."</p></div>
+                <div class="testimonio-card"><h4>@lara_flow</h4><p>"Mi cuenta creció de forma orgánica y sólida."</p></div>
+                <div class="testimonio-card"><h4>@zaira_top</h4><p>"La mejor inversión que he hecho en mi marca personal."</p></div>
+                <div class="testimonio-card"><h4>@moni_brand</h4><p>"Excelente equipo de marketing. Muy creativos."</p></div>
+                <div class="testimonio-card"><h4>@ariana_ofm</h4><p>"TopMasterOF es el aliado que toda modelo necesita."</p></div>
+            </div>
         </div>
     </section>
 
     <div id="chat-widget">
         <div id="chat-header">Asistente TopMaster</div>
         <div id="chat-body">
-            <p style="margin-bottom:15px; font-size:0.9rem;">¿En qué puedo ayudarte hoy?</p>
-            <button class="bot-btn" onclick="botAns('Nos encargamos de todo: desde el marketing hasta el chatting 24/7.')">¿Cómo funciona la agencia?</button>
-            <button class="bot-btn" onclick="botAns('Utilizamos Geoblocking y protección legal por contrato.')">¿Mi contenido está seguro?</button>
-            <button class="bot-btn" onclick="botAns('El porcentaje se pacta según el nivel de la cuenta.')">¿Cuál es el porcentaje de comisión?</button>
-            <button class="bot-btn" onclick="botAns('Auditamos tu perfil y creamos un plan de 30 días.')">¿Qué incluye la auditoría gratuita?</button>
-            <button class="bot-btn" onclick="botAns('Aceptamos modelos nuevas y con experiencia.')">¿Necesito seguidores previos?</button>
-            <div id="bot-reply" style="margin-top:20px; color:var(--blue-vibrant); font-weight:bold; border-top: 1px solid #334155; padding-top:15px;"></div>
-        </div>
-    </div>
-
-    <div id="blog-page">
-        <button onclick="closeBlog()" style="background:var(--blue-vibrant); border:none; padding:12px 30px; border-radius:50px; cursor:pointer; font-weight:bold;">VOLVER</button>
-        <h1 style="margin-top: 40px;">Portal de <span>Actualizaciones</span></h1>
-        <div style="background: #0f172a; padding: 40px; border-radius: 20px; margin-top: 20px;">
-            <h3>Blog de Mejoramiento</h3>
-            <p>Próximamente: Guías exclusivas sobre mentalidad y biohacking para creadoras.</p>
+            <button class="bot-btn" onclick="botAns('Gestión total y marketing viral.')">¿Qué hacen?</button>
+            <button class="bot-btn" onclick="botAns('Usamos Geoblocking avanzado.')">¿Es seguro?</button>
+            <div id="bot-reply" style="margin-top:15px; color:var(--blue-vibrant);"></div>
         </div>
     </div>
 
@@ -159,8 +167,27 @@
     <a href="https://wa.me/573217691379" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        function openBlog() { document.getElementById('blog-page').style.display = 'block'; }
-        function closeBlog() { document.getElementById('blog-page').style.display = 'none'; }
+        let index = 0;
+        const track = document.getElementById('track');
+        const slides = document.querySelectorAll('.testimonio-card');
+
+        function showSlide() {
+            if(index >= slides.length) index = 0;
+            if(index < 0) index = slides.length - 1;
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function moveSlide(n) {
+            index += n;
+            showSlide();
+        }
+
+        // Auto-play cada 3 segundos
+        setInterval(() => {
+            index++;
+            showSlide();
+        }, 3000);
+
         function toggleChat() { 
             const chat = document.getElementById('chat-widget');
             chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
