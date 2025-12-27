@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TopMasterOF | Elite Management Agency</title>
+    
+    <title>TopMasterOF | OnlyFans Management & Marketing Élite</title>
+    <meta name="description" content="La agencia líder en OnlyFans Management. Marketing viral, Chatting profesional 24/7 y seguridad absoluta. Escalamos creadoras al Top 0.5% global.">
+    <meta name="keywords" content="OnlyFans Management Agency, OFM Agency, Agencia OnlyFans España, Agencia OnlyFans Colombia, Gestión OnlyFans, Chatting OnlyFans, Tráfico Viral">
+    <meta name="author" content="TopMasterOF">
+    <meta property="og:title" content="TopMasterOF | Elite OFM Management">
+    <meta property="og:description" content="Escala tus ingresos al Top 0.5% con nuestra gestión profesional.">
+    <meta property="og:type" content="website">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
@@ -11,200 +19,266 @@
             --blue-deep: #0045db;
             --black: #020617; 
             --dark-grey: #0f172a; 
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(0, 210, 255, 0.2);
             --text: #f8fafc; 
         }
 
-        body { background-color: var(--black); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--black); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* HEADER */
+        /* HEADER PREMIUM */
         header { 
-            position: fixed; top: 0; width: 100%; padding: 15px 5%; 
-            background: rgba(2, 6, 23, 0.9); backdrop-filter: blur(15px);
+            position: fixed; top: 0; width: 100%; padding: 20px 5%; 
+            background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(20px);
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 5000; border-bottom: 1px solid rgba(0, 210, 255, 0.1);
-            box-sizing: border-box;
+            z-index: 5000; border-bottom: 1px solid var(--border);
         }
-        header nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; font-weight: 600; }
+        header .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; color: var(--blue-vibrant); text-transform: uppercase; }
+        header nav a { color: white; text-decoration: none; margin-left: 25px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
+        header nav a:hover { color: var(--blue-vibrant); }
 
-        /* SECCIÓN 1: HERO (DISEÑO DINÁMICO OCÉANO) */
+        /* SECCIÓN 1: HERO (AGUA Y OLAS MEJORADAS) */
         .hero { 
             position: relative; height: 100vh; width: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; overflow: hidden;
-            background: linear-gradient(-45deg, #020617, #001e4d, #0045db, #020617);
-            background-size: 400% 400%;
-            animation: oceanFlow 15s ease infinite;
+            background: radial-gradient(circle at center, #001e4d 0%, #020617 100%);
         }
-        @keyframes oceanFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-        .top-rank { font-size: 0.9rem; font-weight: 800; color: var(--blue-vibrant); padding: 8px 25px; border: 1px solid var(--blue-vibrant); border-radius: 50px; margin-bottom: 25px; letter-spacing: 4px; }
-        .hero h1 { font-size: clamp(3rem, 10vw, 5.5rem); margin: 0; line-height: 1; font-weight: 900; text-align: center; }
+        .hero-content { position: relative; z-index: 20; padding: 0 20px; }
+        .top-rank { 
+            font-size: 0.8rem; font-weight: 800; color: var(--blue-vibrant);
+            padding: 10px 30px; border: 1px solid var(--blue-vibrant); border-radius: 50px;
+            margin-bottom: 30px; letter-spacing: 5px; display: inline-block;
+        }
+        .hero h1 { font-size: clamp(3.5rem, 12vw, 6rem); font-weight: 900; line-height: 0.9; margin-bottom: 20px; }
         .hero h1 span { color: var(--blue-vibrant); }
+        .hero p { font-size: 1.2rem; color: #94a3b8; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 
-        /* BOTÓN CON ONDA DE CHOQUE SÓNICA */
+        /* OLAS SVG REALISTAS */
+        .waves { position: absolute; bottom: 0; width: 100%; height: 15vh; min-height: 100px; z-index: 10; }
+        .parallax > use { animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; }
+        .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+        .parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+        .parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+        .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+        @keyframes move-forever { 0% { transform: translate3d(-90px,0,0); } 100% { transform: translate3d(85px,0,0); } }
+
+        /* BOTÓN SÓNICO */
         .btn-sonic { 
             position: relative; background: var(--blue-deep); color: white; 
-            padding: 22px 50px; border-radius: 50px; text-decoration: none; 
+            padding: 22px 55px; border-radius: 50px; text-decoration: none; 
             font-weight: 800; text-transform: uppercase; border: none; cursor: pointer;
-            margin-top: 40px; overflow: visible; z-index: 10;
+            margin-top: 45px; display: inline-block; z-index: 25;
         }
         .btn-sonic:hover::before {
             content: ''; position: absolute; top: 50%; left: 50%; width: 100%; height: 100%;
             border: 2px solid var(--blue-vibrant); border-radius: 50px;
             transform: translate(-50%, -50%); animation: sonicWave 0.6s ease-out;
         }
-        @keyframes sonicWave { 0% { width: 100%; height: 100%; opacity: 1; } 100% { width: 160%; height: 250%; opacity: 0; } }
+        @keyframes sonicWave { 0% { width: 100%; height: 100%; opacity: 1; } 100% { width: 180%; height: 280%; opacity: 0; } }
 
-        /* OLAS SVG */
-        .waves { position: absolute; bottom: 0; width: 100%; height: 12vh; min-height: 100px; z-index: 5; }
-        .parallax > use { animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite; }
-        @keyframes move-forever { 0% { transform: translate3d(-90px,0,0); } 100% { transform: translate3d(85px,0,0); } }
+        /* SECCIONES MEJORADAS (DISEÑO GLASSMISM) */
+        section { padding: 120px 8%; text-align: center; }
+        h2 { font-size: 3rem; font-weight: 900; margin-bottom: 50px; text-transform: uppercase; }
+        h2 span { color: var(--blue-vibrant); }
 
-        /* SECCIONES DINÁMICAS */
-        section { padding: 100px 10%; text-align: center; border-bottom: 1px solid #1e293b; }
-        .bg-dark { background: var(--black); }
-        .bg-vibrant { background: var(--dark-grey); }
-
-        /* CARRUSEL DE TESTIMONIOS (20 COMENTARIOS) */
-        .carousel-container { position: relative; max-width: 900px; margin: 50px auto; overflow: hidden; border-radius: 30px; }
-        .carousel-track { display: flex; transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1); }
-        .testimonio-card { 
-            min-width: 100%; padding: 50px; box-sizing: border-box; 
-            background: #1e293b; border: 1px solid #334155; border-radius: 30px;
-            text-align: center;
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .feature-card { 
+            background: var(--glass); border: 1px solid var(--border); padding: 50px; 
+            border-radius: 40px; backdrop-filter: blur(10px); transition: 0.4s;
         }
-        .testimonio-card h4 { color: var(--blue-vibrant); margin-bottom: 15px; font-size: 1.5rem; }
-        .testimonio-card p { font-style: italic; color: #cbd5e1; font-size: 1.2rem; }
+        .feature-card:hover { transform: translateY(-10px); border-color: var(--blue-vibrant); background: rgba(0, 210, 255, 0.05); }
+        .feature-card i { font-size: 3rem; color: var(--blue-vibrant); margin-bottom: 25px; }
 
-        .carousel-btn { 
-            position: absolute; top: 50%; transform: translateY(-50%); 
-            background: var(--blue-deep); color: white; border: none; 
-            width: 45px; height: 45px; border-radius: 50%; cursor: pointer; z-index: 10;
-        }
-        .btn-prev { left: 10px; } .btn-next { right: 10px; }
+        /* CARRUSEL DE COMENTARIOS */
+        .carousel-section { background: var(--dark-grey); }
+        .carousel-container { position: relative; max-width: 850px; margin: 0 auto; overflow: hidden; border-radius: 40px; }
+        .carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+        .testimonio-card { min-width: 100%; padding: 60px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 40px; }
+        .testimonio-card p { font-size: 1.4rem; font-style: italic; line-height: 1.6; color: #cbd5e1; margin-bottom: 20px; }
+        .testimonio-card h4 { color: var(--blue-vibrant); font-weight: 800; font-size: 1.2rem; }
 
-        /* CHATBOT (30 Q&A) */
+        /* CHATBOT PRO */
         #chat-widget { 
-            position: fixed; bottom: 110px; right: 30px; width: 350px; 
+            position: fixed; bottom: 110px; right: 30px; width: 380px; 
             background: #0f172a; border: 1px solid var(--blue-vibrant); 
-            border-radius: 25px; display: none; flex-direction: column; z-index: 9000;
+            border-radius: 30px; display: none; flex-direction: column; z-index: 9000;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
-        #chat-header { background: var(--blue-deep); padding: 20px; border-radius: 25px 25px 0 0; font-weight: bold; display: flex; justify-content: space-between; }
-        #chat-body { padding: 20px; max-height: 400px; overflow-y: auto; text-align: left; }
-        .bot-btn { width: 100%; text-align: left; padding: 10px; margin-bottom: 6px; background: #1e293b; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.8rem; }
+        #chat-header { background: var(--blue-deep); padding: 25px; border-radius: 30px 30px 0 0; font-weight: 900; display: flex; justify-content: space-between; }
+        #chat-body { padding: 20px; max-height: 400px; overflow-y: auto; scroll-behavior: smooth; }
+        .bot-btn { 
+            width: 100%; text-align: left; padding: 12px 15px; margin-bottom: 8px; 
+            background: #1e293b; color: white; border: 1px solid transparent; 
+            border-radius: 12px; cursor: pointer; transition: 0.3s; font-size: 0.85rem;
+        }
+        .bot-btn:hover { border-color: var(--blue-vibrant); background: var(--blue-deep); }
+        #bot-reply-area { margin-top: 20px; padding: 20px; background: rgba(0,210,255,0.1); border-radius: 15px; display: none; }
 
-        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; z-index: 8000; text-decoration: none; }
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; z-index: 8000; text-decoration: none; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+
+        #blog-page { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--black); z-index: 9999; display: none; overflow-y: auto; padding: 80px 10%; }
     </style>
 </head>
 <body>
 
     <header>
-        <div style="font-weight: 900; color: var(--blue-vibrant);">TOPMASTER OF</div>
+        <div class="logo">TopMaster<span>OF</span></div>
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#servicios">Servicios</a>
             <a href="#testimonios">Modelos</a>
-            <a href="https://wa.me/573217691379">Contacto</a>
+            <a href="#" onclick="openBlog(); return false;">Journal</a>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
-        <div class="top-rank">TOP 0.5% GLOBAL</div>
-        <h1>Escala al<br><span>Nivel Élite</span></h1>
-        <a href="https://wa.me/573217691379" class="btn-sonic">Aplicar Ahora</a>
+        <div class="hero-content">
+            <div class="top-rank">ELITE RANKING TOP 0.5%</div>
+            <h1>The New Era of<br><span>OFM Management</span></h1>
+            <p>No somos una agencia más. Somos el motor estratégico que escala creadoras a la cima global con marketing de precisión y gestión absoluta.</p>
+            <a href="https://wa.me/573217691379" class="btn-sonic">Aplicar Ahora</a>
+        </div>
 
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
             <defs><path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
             <g class="parallax">
-                <use href="#wave-path" x="48" y="0" fill="rgba(0, 210, 255, 0.2)" />
-                <use href="#wave-path" x="48" y="3" fill="rgba(0, 210, 255, 0.4)" />
+                <use href="#wave-path" x="48" y="0" fill="rgba(0, 210, 255, 0.1)" />
+                <use href="#wave-path" x="48" y="3" fill="rgba(0, 210, 255, 0.2)" />
+                <use href="#wave-path" x="48" y="5" fill="rgba(0, 210, 255, 0.3)" />
                 <use href="#wave-path" x="48" y="7" fill="#020617" />
             </g>
         </svg>
     </section>
 
-    <section id="servicios" class="bg-vibrant">
-        <h2>Servicios <span>Premium</span></h2>
-        <p>Optimización total de tu carrera digital.</p>
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
-            <div style="background:#0f172a; padding:30px; border-radius:20px; width:250px;"><h3>Marketing</h3><p>TikTok & Reels Viral</p></div>
-            <div style="background:#0f172a; padding:30px; border-radius:20px; width:250px;"><h3>Chatting</h3><p>Ventas 24/7</p></div>
+    <section id="servicios">
+        <h2>Ingeniería de <span>Resultados</span></h2>
+        <div class="feature-grid">
+            <div class="feature-card"><i class="fas fa-bolt"></i><h3>Marketing Viral</h3><p>TikTok, Reels e IG dominados por algoritmos propios.</p></div>
+            <div class="feature-card"><i class="fas fa-headset"></i><h3>Chatting Élite</h3><p>Ventas 24/7 con expertos en persuasión de alto nivel.</p></div>
+            <div class="feature-card"><i class="fas fa-lock"></i><h3>Privacidad 360</h3><p>Protección legal y bloqueo geográfico de nivel militar.</p></div>
         </div>
     </section>
 
-    <section id="testimonios" class="bg-dark">
-        <h2>Historias de <span>Éxito</span></h2>
+    <section id="testimonios" class="carousel-section">
+        <h2>Trusted by <span>Models</span></h2>
         <div class="carousel-container">
-            <button class="carousel-btn btn-prev" onclick="moveSlide(-1)">❮</button>
-            <button class="carousel-btn btn-next" onclick="moveSlide(1)">❯</button>
             <div class="carousel-track" id="track">
-                <div class="testimonio-card"><h4>@veritoaguass</h4><p>"Ingresos triplicados en solo 2 meses de gestión."</p></div>
-                <div class="testimonio-card"><h4>@soyandrearamz</h4><p>"La seguridad que brindan es de otro planeta."</p></div>
-                <div class="testimonio-card"><h4>@luna_fit</h4><p>"Por fin tengo tiempo para entrenar y viajar."</p></div>
-                <div class="testimonio-card"><h4>@diana_vip</h4><p>"El equipo de chat es súper profesional con los fans."</p></div>
-                <div class="testimonio-card"><h4>@bella_sky</h4><p>"Me ayudaron con todo el setup de mi habitación."</p></div>
-                <div class="testimonio-card"><h4>@valery_gold</h4><p>"Mi cuenta creció un 500% gracias a sus Reels."</p></div>
-                <div class="testimonio-card"><h4>@cloe_luxury</h4><p>"Saben exactamente qué contenido publicar cada día."</p></div>
-                <div class="testimonio-card"><h4>@nina_star</h4><p>"Transparencia absoluta con los pagos mensuales."</p></div>
-                <div class="testimonio-card"><h4>@mika_red</h4><p>"No más acosadores gracias a su bloqueo geográfico."</p></div>
-                <div class="testimonio-card"><h4>@zaira_of</h4><p>"El soporte es 24/7, nunca te dejan sola."</p></div>
-                <div class="testimonio-card"><h4>@ruby_elite</h4><p>"Aprendí a monetizar hasta el último mensaje."</p></div>
-                <div class="testimonio-card"><h4>@ari_brand</h4><p>"Estrategia real, no solo promesas vacías."</p></div>
-                <div class="testimonio-card"><h4>@gina_top</h4><p>"TopMasterOF es el mejor socio que he tenido."</p></div>
-                <div class="testimonio-card"><h4>@lara_flow</h4><p>"Resultados rápidos y crecimiento orgánico sólido."</p></div>
-                <div class="testimonio-card"><h4>@moni_lux</h4><p>"Me siento mucho más segura con su respaldo legal."</p></div>
-                <div class="testimonio-card"><h4>@sofia_pro</h4><p>"El equipo técnico me resolvió todas las dudas."</p></div>
-                <div class="testimonio-card"><h4>@elena_vip</h4><p>"Auditoría gratuita que realmente sirve."</p></div>
-                <div class="testimonio-card"><h4>@karla_rose</h4><p>"Dominan el algoritmo de TikTok a la perfección."</p></div>
-                <div class="testimonio-card"><h4>@mery_star</h4><p>"Mi facturación no para de subir mes a mes."</p></div>
-                <div class="testimonio-card"><h4>@jade_elite</h4><p>"Es una agencia boutique de verdad, trato exclusivo."</p></div>
-            </div>
+                </div>
         </div>
     </section>
 
     <div id="chat-widget">
         <div id="chat-header"><span>TopMaster Assistant</span><span onclick="toggleChat()" style="cursor:pointer">×</span></div>
-        <div id="chat-body"><div id="qa-container"></div><div id="bot-reply" style="margin-top:15px; color:var(--blue-vibrant); font-weight:bold;"></div></div>
+        <div id="chat-body">
+            <div id="qa-list"></div>
+            <div id="bot-reply-area">
+                <p id="bot-reply-text"></p>
+            </div>
+        </div>
     </div>
 
     <button onclick="toggleChat()" style="position:fixed; bottom:30px; right:110px; width:65px; height:65px; border-radius:50%; background:var(--blue-deep); border:none; color:white; font-size:30px; cursor:pointer; z-index:8500;"><i class="fas fa-robot"></i></button>
     <a href="https://wa.me/573217691379" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        // Lógica Carrusel
-        let slideIndex = 0;
-        const track = document.getElementById('track');
-        function moveSlide(n) {
-            slideIndex += n;
-            if(slideIndex >= 20) slideIndex = 0;
-            if(slideIndex < 0) slideIndex = 19;
-            track.style.transform = `translateX(-${slideIndex * 100}%)`;
-        }
-        setInterval(() => moveSlide(1), 3000);
-
-        // Lógica Chatbot (30 Q&A)
-        const qa = [
-            ["¿Qué hacen?", "Manejo total 24/7."], ["¿Es seguro?", "Bloqueo por IP y GPS."], ["¿Comisión?", "Según potencial."], 
-            ["¿Necesito fans?", "No, los creamos."], ["¿Chatting?", "Ventas 24/7."], ["¿Top 0.5%?", "Ranking Élite mundial."], 
-            ["¿Bloqueo países?", "Sí, total."], ["¿Cómo empiezo?", "Escríbenos al WA."], ["¿Editan videos?", "Sí, contenido viral."], 
-            ["¿Cara obligatoria?", "No, hay nichos sin cara."], ["¿Cuándo pagan?", "Según la plataforma."], ["¿Hay contrato?", "Sí, confidencial."], 
-            ["¿Pagan anuncios?", "Sí, invertimos en ti."], ["¿Apoyo legal?", "Sí, expertos en DMCA."], ["¿Qué redes usan?", "TikTok, IG, X, Reddit."], 
-            ["¿Veo mis ingresos?", "Acceso total 24/7."], ["¿Modelos nuevas?", "Sí, bienvenidas."], ["¿Qué equipo?", "Solo tu celular."], 
-            ["¿Marketing X?", "Sí, tráfico masivo."], ["¿Trabajo sola?", "La agencia acelera todo."], ["¿Cuánto toma?", "30 a 60 días."], 
-            ["¿Biohacking?", "Energía para modelos."], ["¿Ayuda lencería?", "Guía de estilo premium."], ["¿Feriados?", "Trabajamos siempre."], 
-            ["¿Fotos?", "Te guiamos profesionalmente."], ["¿Subida fotos?", "Nube cifrada segura."], ["¿Puedo cancelar?", "Bajo contrato previo."], 
-            ["¿Premios?", "Sección en el Journal."], ["¿Casos éxito?", "Verito, Andrea y más."], ["¿Auditoría gratis?", "Sí, aplica hoy."]
+        // 20 Comentarios para el Carrusel
+        const comments = [
+            ["@veritoaguass", "La gestión de mensajes triplicó mis ingresos en el primer mes."],
+            ["@soyandrearamz", "Seguridad absoluta. Nadie en mi país sabe lo que hago."],
+            ["@luna_fit", "Por fin puedo viajar mientras la agencia trabaja por mí."],
+            ["@diana_vip", "El tráfico de TikTok que generan es una locura, fans reales."],
+            ["@bella_sky", "Atención al cliente 24/7. Siempre responden."],
+            ["@valery_gold", "Me ayudaron con el branding y ahora mi perfil se ve de lujo."],
+            ["@cloe_luxury", "Los mejores cerradores de ventas que he conocido."],
+            ["@nina_star", "Transparencia total en los reportes de ganancias."],
+            ["@mika_red", "Su estrategia de contenido es simplemente superior."],
+            ["@zaira_of", "He escalado al Top 0.5% en tiempo récord."],
+            ["@ruby_elite", "Protección de contenido impecable, cero filtraciones."],
+            ["@ari_brand", "Sienten que son parte de tu equipo, no solo una agencia."],
+            ["@gina_top", "La mejor inversión para mi libertad financiera."],
+            ["@lara_flow", "Crecimiento orgánico constante sin comprar bots."],
+            ["@moni_lux", "Trato exclusivo y personalizado. No eres un número."],
+            ["@sofia_pro", "Expertos en psicología de ventas para el chatting."],
+            ["@elena_vip", "El proceso de onboarding fue rápido y profesional."],
+            ["@karla_rose", "Me liberaron 8 horas al día de trabajo pesado."],
+            ["@mery_star", "Mis propinas subieron un 400% con su equipo."],
+            ["@jade_elite", "TopMasterOF es el aliado definitivo en esta industria."]
         ];
-        const qaContainer = document.getElementById('qa-container');
+
+        const track = document.getElementById('track');
+        comments.forEach(c => {
+            const card = document.createElement('div');
+            card.className = 'testimonio-card';
+            card.innerHTML = `<p>"${c[1]}"</p><h4>${c[0]}</h4>`;
+            track.appendChild(card);
+        });
+
+        let index = 0;
+        setInterval(() => {
+            index = (index + 1) % comments.length;
+            track.style.transform = `translateX(-${index * 100}%)`;
+        }, 3500);
+
+        // Chatbot 30 Q&A con Auto-Scroll
+        const qa = [
+            ["¿Qué hacen?", "Gestionamos tu OnlyFans 24/7: marketing, chatting y contenido."],
+            ["¿Es seguro?", "Bloqueo por país/IP y protección legal DMCA incluida."],
+            ["¿Cuál es la comisión?", "El porcentaje se define tras la auditoría de tu perfil."],
+            ["¿Necesito fans?", "No. Nosotros creamos el tráfico viral desde cero."],
+            ["¿Chatting 24/7?", "Sí. Chatter profesionales cierran ventas mientras duermes."],
+            ["¿Es confidencial?", "Firmamos contrato legal de confidencialidad total."],
+            ["¿Bloquean mi ciudad?", "Sí. Bloqueamos cualquier región geográfica específica."],
+            ["¿Cómo aplico?", "Haciendo clic en el botón de WhatsApp o Aplicar Ahora."],
+            ["¿Editan contenido?", "Sí. Editamos tus videos para TikTok, Reels y OF."],
+            ["¿Muestran mi cara?", "No es obligatorio. Manejamos perfiles faceless con éxito."],
+            ["¿Cuándo me pagan?", "Los pagos siguen el ciclo oficial de la plataforma."],
+            ["¿Pagan los anuncios?", "Nosotros cubrimos el costo del tráfico viral inicial."],
+            ["¿Qué redes usan?", "TikTok, Instagram, Twitter y Reddit."],
+            ["¿Soy dueña de mi cuenta?", "Siempre. Tienes acceso total a tus estadísticas."],
+            ["¿Aceptan principiantes?", "Sí. Escalamos cuentas desde cero absoluto."],
+            ["¿Qué equipo necesito?", "Solo un iPhone de modelo reciente es suficiente."],
+            ["¿Tienen equipo legal?", "Sí. Expertos en propiedad intelectual y protección."],
+            ["¿Es rentable hoy?", "Más que nunca para perfiles bien gestionados."],
+            ["¿Hay permanencia?", "Los términos se detallan en el contrato mutuo."],
+            ["¿Qué es el Top 0.5%?", "Estar entre las cuentas con más ingresos del mundo."],
+            ["¿Me ayudan con la lencería?", "Te damos guías de estilo, outfits y estética."],
+            ["¿Cómo subo el contenido?", "A través de una nube cifrada ultra segura."],
+            ["¿Hacen marketing en X?", "Sí, poseemos una red masiva de cuentas de apoyo."],
+            ["¿Atienden feriados?", "Nuestro equipo de chat no descansa ningún día."],
+            ["¿Qué es la auditoría?", "Análisis de tu potencial y estrategia de 30 días."],
+            ["¿Cómo se dividen propinas?", "Se suman a la facturación total de la cuenta."],
+            ["¿Trabajo sola?", "Tú creas el contenido, nosotros hacemos el dinero."],
+            ["¿Tienen oficina?", "Operamos globalmente con equipo en 3 continentes."],
+            ["¿Qué es el Journal?", "Nuestra zona de premios y noticias para modelos."],
+            ["¿Es gratis?", "La consultoría inicial es totalmente gratuita."]
+        ];
+
+        const qaList = document.getElementById('qa-list');
+        const replyArea = document.getElementById('bot-reply-area');
+        const replyText = document.getElementById('bot-reply-text');
+        const chatBody = document.getElementById('chat-body');
+
         qa.forEach(item => {
-            const b = document.createElement('button'); b.className='bot-btn'; b.innerText=item[0];
-            b.onclick = () => document.getElementById('bot-reply').innerText = "> " + item[1];
-            qaContainer.appendChild(b);
+            const btn = document.createElement('button');
+            btn.className = 'bot-btn';
+            btn.innerText = item[0];
+            btn.onclick = () => {
+                replyText.innerText = "> " + item[1];
+                replyArea.style.display = 'block';
+                // Auto-scroll hacia la respuesta
+                setTimeout(() => {
+                    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+                }, 100);
+            };
+            qaList.appendChild(btn);
         });
 
         function toggleChat() { 
             const c = document.getElementById('chat-widget');
-            c.style.display = c.style.display === 'flex' ? 'none' : 'flex';
+            c.style.display = (c.style.display === 'flex' ? 'none' : 'flex');
         }
     </script>
 </body>
