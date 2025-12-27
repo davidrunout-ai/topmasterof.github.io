@@ -117,17 +117,6 @@
         .parallax > use:nth-child(3) { animation-duration: 18s; animation-delay: -4s; opacity: 0.7; }
         .parallax > use:nth-child(4) { animation-duration: 28s; animation-delay: -5s; }
         @keyframes move-forever { 0% { transform: translate3d(-90px,0,0); } 100% { transform: translate3d(85px,0,0); } }
-
-        .waves-container {
-            width: 100%;
-            overflow: hidden; /* Esto bloquea el desplazamiento lateral */
-            position: relative;
-        }
-    
-         .waves {
-            display: block;
-            width: 100%;
-         }
         
         /* SECCIÓN SERVICIOS */
         section { padding: 100px 5%; text-align: center; }
@@ -718,37 +707,39 @@
             initSpaceTravel();
         });
 
-                function showSection(target) {
-                    const mainSections = ['inicio', 'waves-container', 'servicios', 'testimonios', 'blog', 'faq', 'footer-waves'];
-                    const blogFullPage = document.getElementById('blog-full-page');
-                    const footer = document.querySelector('footer');
+        function showSection(target) {
+        // Seleccionamos todas las partes que componen la página de inicio
+        const homeElements = [
+            document.querySelector('.hero'),
+            document.querySelector('.waves-container'),
+            document.getElementById('servicios'),
+            document.getElementById('testimonios'),
+            document.getElementById('blog'), // Sección previa de blog
+            document.getElementById('faq'),
+            document.querySelector('.footer-waves'),
+            document.querySelector('footer')
+        ];
+        
+        const blogFullPage = document.getElementById('blog-full-page');
 
-                    if (target === 'blog-full') {
-                        // Ocultar todo lo de la página de inicio
-                        mainSections.forEach(id => {
-                            const el = document.getElementById(id);
-                            if (el) el.style.display = 'none';
-                        });
-                        if (footer) footer.style.display = 'none'; // Oculta el footer
-                        
-                        // Mostrar página de blog
-                        blogFullPage.style.display = 'block';
-                        window.scrollTo(0, 0);
-                    } else {
-                        // Mostrar todo lo de la página de inicio
-                        mainSections.forEach(id => {
-                            const el = document.getElementById(id);
-                            if (el) el.style.display = 'block';
-                        });
-                        if (footer) footer.style.display = 'block'; // Muestra el footer
-                        
-                        // Ocultar página de blog
-                        blogFullPage.style.display = 'none';
-                        
-                        // Corrige el error de la ola cortada recalculando el ancho
-                        window.dispatchEvent(new Event('resize'));
-                    }
-                }
+        if (target === 'blog-full') {
+            // OCULTAR TODO lo de inicio (incluyendo footer y olas)
+            homeElements.forEach(el => { if(el) el.style.display = 'none'; });
+            
+            // MOSTRAR sección completa de blog
+            blogFullPage.style.display = 'block';
+            window.scrollTo(0, 0);
+        } else {
+            // MOSTRAR todo lo de inicio
+            homeElements.forEach(el => { if(el) el.style.display = 'block'; });
+            
+            // OCULTAR sección completa de blog
+            blogFullPage.style.display = 'none';
+            
+            // Forzar que las olas se recalculen para evitar que se corten
+            window.dispatchEvent(new Event('resize'));
+        }
+    }
 
 
         // CHATBOT 30 PREGUNTAS
