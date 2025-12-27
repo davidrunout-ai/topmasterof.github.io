@@ -236,6 +236,80 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* SECCIÓN BLOG UNIVERSO */
+        .blog-universe {
+            position: relative;
+            padding: 100px 5%;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            overflow: hidden;
+        }
+
+        /* Efecto de Estrellas Animadas */
+        .stars-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: move-stars linear infinite;
+        }
+
+        @keyframes move-stars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-1000px); }
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .blog-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--blue-vibrant);
+            box-shadow: 0 15px 30px rgba(0, 210, 255, 0.2);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .blog-info { padding: 25px; }
+        .blog-info h3 { font-size: 1.2rem; margin-bottom: 15px; color: white; }
+        .blog-info p { font-size: 0.9rem; color: #94a3b8; line-height: 1.5; margin-bottom: 20px; }
+        
+        .read-more {
+            color: var(--blue-vibrant);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         /* FOOTER CON OLAS INVERTIDAS */
         .footer-waves { position: relative; width: 100%; rotate: 180deg; line-height: 0; z-index: 5; margin-top: 50px; }
         
@@ -351,6 +425,45 @@
         <h2>Casos de <span>Éxito Real</span></h2>
         <div class="carousel-wrapper">
             <div class="carousel-track" id="track">
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog-universe reveal">
+        <div class="stars-container" id="stars-js"></div>
+
+        <div class="services-title" style="position: relative; z-index: 2;">
+            <p style="color: var(--blue-vibrant); font-weight: 800; letter-spacing: 2px;">NUESTRO BLOG</p>
+            <h2 style="color: white;">Aprende sobre el <span>Marketing Élite</span></h2>
+            <p style="color: #cbd5e1;">Domina las estrategias necesarias para escalar tu contenido y maximizar tus ingresos.</p>
+        </div>
+
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80');"></div>
+                <div class="blog-info">
+                    <h3>¿Qué es OnlyFans y cómo funciona? Guía Completa</h3>
+                    <p>Descubre los pilares fundamentales para iniciar con éxito en la plataforma líder de contenido exclusivo.</p>
+                    <a href="#" class="read-more">Leer Artículo →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80');"></div>
+                <div class="blog-info">
+                    <h3>Cómo ganar dinero en OnlyFans sin mostrar la cara</h3>
+                    <p>Estrategias de anonimato total y marketing psicológico para triunfar manteniendo tu privacidad absoluta.</p>
+                    <a href="#" class="read-more">Leer Artículo →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&q=80');"></div>
+                <div class="blog-info">
+                    <h3>Guía Paso a Paso para Crear una Cuenta Exitosa</h3>
+                    <p>Desde la configuración técnica hasta la optimización de tu biografía para convertir visitantes en suscriptores.</p>
+                    <a href="#" class="read-more">Leer Artículo →</a>
+                </div>
             </div>
         </div>
     </section>
@@ -481,6 +594,24 @@
             index = (index + 1) % comments.length;
             track.style.transform = `translateX(-${index * 100}%)`;
         }, 3000);
+
+        // Generador de Estrellas para el Blog
+        function createStars() {
+            const container = document.getElementById('stars-js');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 3 + 'px';
+                star.style.width = size;
+                star.style.height = size;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDuration = (Math.random() * 50 + 20) + 's';
+                star.style.animationDelay = Math.random() * -50 + 's';
+                container.appendChild(star);
+            }
+        }
+        createStars();
 
         // CHATBOT 30 PREGUNTAS
         const qa = [
