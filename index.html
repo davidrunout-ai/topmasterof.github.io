@@ -236,12 +236,15 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* SECCIÓN BLOG UNIVERSO */
+        /* SECCIÓN BLOG UNIVERSO - MEJORADO CON VIAJE ESPACIAL */
         .blog-universe {
             position: relative;
             padding: 100px 5%;
             background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
             overflow: hidden;
+            /* Degradado de inicio y fin */
+            mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
         }
 
         /* Efecto de Estrellas Animadas */
@@ -249,66 +252,24 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 1;
+            perspective: 500px; /* Para efecto 3D si se desea */
         }
 
         .star {
             position: absolute;
             background: white;
             border-radius: 50%;
-            opacity: 0.5;
-            animation: move-stars linear infinite;
+            opacity: 0; /* Empieza invisible para un efecto de aparición */
+            animation: move-and-fade-stars linear infinite;
         }
 
-        @keyframes move-stars {
-            from { transform: translateY(0); }
-            to { transform: translateY(-1000px); }
+        @keyframes move-and-fade-stars {
+            0% { transform: translateZ(0) translateY(0); opacity: 0; }
+            10% { opacity: 0.8; } /* Aparecen */
+            90% { opacity: 0.8; } /* Se mantienen visibles */
+            100% { transform: translateZ(-500px) translateY(-2000px); opacity: 0; } /* Se alejan y desvanecen */
         }
 
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .blog-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: 0.4s;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-15px);
-            border-color: var(--blue-vibrant);
-            box-shadow: 0 15px 30px rgba(0, 210, 255, 0.2);
-        }
-
-        .blog-img {
-            width: 100%;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .blog-info { padding: 25px; }
-        .blog-info h3 { font-size: 1.2rem; margin-bottom: 15px; color: white; }
-        .blog-info p { font-size: 0.9rem; color: #94a3b8; line-height: 1.5; margin-bottom: 20px; }
-        
-        .read-more {
-            color: var(--blue-vibrant);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
 
         /* FOOTER CON OLAS INVERTIDAS */
         .footer-waves { position: relative; width: 100%; rotate: 180deg; line-height: 0; z-index: 5; margin-top: 50px; }
@@ -595,22 +556,24 @@
             track.style.transform = `translateX(-${index * 100}%)`;
         }, 3000);
 
-        // Generador de Estrellas para el Blog
+        // Generador de Estrellas para el Blog (Mejorado)
         function createStars() {
             const container = document.getElementById('stars-js');
-            for (let i = 0; i < 100; i++) {
+            const numStars = 300; // ¡Más estrellas!
+            for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
-                const size = Math.random() * 3 + 'px';
+                const size = Math.random() * 4 + 1 + 'px'; // Estrellas de 1px a 5px
                 star.style.width = size;
                 star.style.height = size;
                 star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDuration = (Math.random() * 50 + 20) + 's';
-                star.style.animationDelay = Math.random() * -50 + 's';
+                star.style.top = Math.random() * 200 + '%'; // Empiezan más abajo para subir
+                star.style.animationDuration = (Math.random() * 40 + 10) + 's'; // Velocidades variadas
+                star.style.animationDelay = Math.random() * -40 + 's'; // Retardos aleatorios
                 container.appendChild(star);
             }
         }
+        // Asegúrate de llamar a la función si no lo haces ya en tu script
         createStars();
 
         // CHATBOT 30 PREGUNTAS
