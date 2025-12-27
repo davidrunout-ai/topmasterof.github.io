@@ -708,30 +708,30 @@
             initSpaceTravel();
         });
 
-        function showSection(target) {
-        const mainSections = ['inicio', 'servicios', 'testimonios', 'blog', 'faq', 'footer-waves'];
-        const blogFullPage = document.getElementById('blog-full-page');
-        const footer = document.querySelector('footer');
+                 function showSection(target) {
+                 const mainSections = ['inicio', 'servicios', 'testimonios', 'blog', 'faq', 'footer-waves'];
+                 const blogFullPage = document.getElementById('blog-full-page');
+                 const footer = document.querySelector('footer');
+                if (target === 'blog-full') {
+                    // Ocultar todo lo de la página de inicio
+                    mainSections.forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.style.display = 'none';
+                    });
+                    // Mostrar página de blog
+                    blogFullPage.style.display = 'block';
+                    window.scrollTo(0, 0);
+                } else {
+                    // Mostrar todo lo de la página de inicio
+                    mainSections.forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.style.display = 'block';
+                    });
+                    // Ocultar página de blog
+                    blogFullPage.style.display = 'none';
+                }
+            }
 
-        if (target === 'blog-full') {
-            // Ocultar todo lo de la página de inicio
-            mainSections.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.style.display = 'none';
-            });
-            // Mostrar página de blog
-            blogFullPage.style.display = 'block';
-            window.scrollTo(0, 0);
-        } else {
-            // Mostrar todo lo de la página de inicio
-            mainSections.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.style.display = 'block';
-            });
-            // Ocultar página de blog
-            blogFullPage.style.display = 'none';
-        }
-    }
 
         // CHATBOT 30 PREGUNTAS
         const qa = [
