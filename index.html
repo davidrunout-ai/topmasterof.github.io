@@ -117,6 +117,17 @@
         .parallax > use:nth-child(3) { animation-duration: 18s; animation-delay: -4s; opacity: 0.7; }
         .parallax > use:nth-child(4) { animation-duration: 28s; animation-delay: -5s; }
         @keyframes move-forever { 0% { transform: translate3d(-90px,0,0); } 100% { transform: translate3d(85px,0,0); } }
+
+        .waves-container {
+            width: 100%;
+            overflow: hidden; /* Esto bloquea el desplazamiento lateral */
+            position: relative;
+        }
+    
+         .waves {
+            display: block;
+            width: 100%;
+         }
         
         /* SECCIÓN SERVICIOS */
         section { padding: 100px 5%; text-align: center; }
@@ -596,35 +607,34 @@
         </div>
     </footer>
 
-    <section id="blog-full-page" style="display: none; padding: 120px 5%; background: #020617; min-height: 100vh;">
+    <section id="blog-full-page" style="display: none; padding: 100px 5%; background: #020617; min-height: 100vh;">
         <div class="services-title">
             <h2 style="color: white;">Explora Nuestro <span>Contenido Élite</span></h2>
-            <p>Artículos detallados para maximizar tu presencia digital.</p>
+            <p>Información estratégica para creadores de alto rendimiento.</p>
         </div>
 
-        <div class="blog-full-container" style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 50px;">
-            
-            <article class="blog-post-full" style="background: var(--glass); border: 1px solid var(--border); border-radius: 20px; padding: 40px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80" style="width: 100%; border-radius: 15px; margin-bottom: 30px;">
-                <h2 style="color: var(--blue-vibrant); margin-bottom: 20px;">¿Qué es OnlyFans y cómo funciona? Guía Completa</h2>
-                <div style="color: #cbd5e1; line-height: 1.8;">
-                    <p>OnlyFans se ha consolidado como la plataforma líder para creadores de contenido. En esta guía exploramos desde la creación de la cuenta hasta la configuración de niveles de suscripción...</p>
-                    <p style="margin-top: 15px;">Para tener éxito, no basta con subir fotos; se requiere una estrategia de marketing psicológico y una gestión de comunidad activa 24/7.</p>
-                </div>
+        <div class="blog-full-container" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px;">
+            <article style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 30px;">
+                <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80" style="width: 100%; border-radius: 15px; margin-bottom: 20px;">
+                <h3 style="color: #00d2ff; margin-bottom: 15px;">¿Qué es OnlyFans y cómo funciona? Guía Completa</h3>
+                <p style="color: #cbd5e1; line-height: 1.7;">Domina los conceptos básicos y avanzados para configurar tu perfil de manera profesional y rentable.</p>
             </article>
 
-            <article class="blog-post-full" style="background: var(--glass); border: 1px solid var(--border); border-radius: 20px; padding: 40px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80" style="width: 100%; border-radius: 15px; margin-bottom: 30px;">
-                <h2 style="color: var(--blue-vibrant); margin-bottom: 20px;">Cómo ganar dinero sin mostrar la cara</h2>
-                <div style="color: #cbd5e1; line-height: 1.8;">
-                    <p>El anonimato es una de las mayores preocupaciones. Es posible facturar cifras de 5 dígitos mensuales mediante el uso de máscaras, ángulos estratégicos y un branding basado en la voz y la personalidad...</p>
-                </div>
+            <article style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 30px;">
+                <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80" style="width: 100%; border-radius: 15px; margin-bottom: 20px;">
+                <h3 style="color: #00d2ff; margin-bottom: 15px;">Cómo ganar dinero en OnlyFans sin mostrar la cara</h3>
+                <p style="color: #cbd5e1; line-height: 1.7;">Estrategias de contenido y marketing psicológico diseñadas para mantener tu privacidad al 100%.</p>
             </article>
 
-        </div>
-        
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="javascript:void(0)" onclick="showSection('home')" class="btn-sonic">VOLVER AL INICIO</a>
+            <article style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 30px;">
+                <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&q=80" style="width: 100%; border-radius: 15px; margin-bottom: 20px;">
+                <h3 style="color: #00d2ff; margin-bottom: 15px;">Guía Paso a Paso para Crear una Cuenta Exitosa</h3>
+                <p style="color: #cbd5e1; line-height: 1.7;">El checklist definitivo: desde la verificación hasta la primera venta de contenido exclusivo.</p>
+            </article>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button onclick="showSection('home')" class="btn-sonic">VOLVER AL INICIO</button>
+            </div>
         </div>
     </section>
 
@@ -708,29 +718,37 @@
             initSpaceTravel();
         });
 
-                 function showSection(target) {
-                 const mainSections = ['inicio', 'servicios', 'testimonios', 'blog', 'faq', 'footer-waves'];
-                 const blogFullPage = document.getElementById('blog-full-page');
-                 const footer = document.querySelector('footer');
-                if (target === 'blog-full') {
-                    // Ocultar todo lo de la página de inicio
-                    mainSections.forEach(id => {
-                        const el = document.getElementById(id);
-                        if (el) el.style.display = 'none';
-                    });
-                    // Mostrar página de blog
-                    blogFullPage.style.display = 'block';
-                    window.scrollTo(0, 0);
-                } else {
-                    // Mostrar todo lo de la página de inicio
-                    mainSections.forEach(id => {
-                        const el = document.getElementById(id);
-                        if (el) el.style.display = 'block';
-                    });
-                    // Ocultar página de blog
-                    blogFullPage.style.display = 'none';
+                function showSection(target) {
+                    const mainSections = ['inicio', 'waves-container', 'servicios', 'testimonios', 'blog', 'faq', 'footer-waves'];
+                    const blogFullPage = document.getElementById('blog-full-page');
+                    const footer = document.querySelector('footer');
+
+                    if (target === 'blog-full') {
+                        // Ocultar todo lo de la página de inicio
+                        mainSections.forEach(id => {
+                            const el = document.getElementById(id);
+                            if (el) el.style.display = 'none';
+                        });
+                        if (footer) footer.style.display = 'none'; // Oculta el footer
+                        
+                        // Mostrar página de blog
+                        blogFullPage.style.display = 'block';
+                        window.scrollTo(0, 0);
+                    } else {
+                        // Mostrar todo lo de la página de inicio
+                        mainSections.forEach(id => {
+                            const el = document.getElementById(id);
+                            if (el) el.style.display = 'block';
+                        });
+                        if (footer) footer.style.display = 'block'; // Muestra el footer
+                        
+                        // Ocultar página de blog
+                        blogFullPage.style.display = 'none';
+                        
+                        // Corrige el error de la ola cortada recalculando el ancho
+                        window.dispatchEvent(new Event('resize'));
+                    }
                 }
-            }
 
 
         // CHATBOT 30 PREGUNTAS
