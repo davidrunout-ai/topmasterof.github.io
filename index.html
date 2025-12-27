@@ -39,28 +39,22 @@
             position: relative; height: 100vh; width: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; overflow: hidden;
-            background: #020617; /* Fondo base */
+            background: #020617;
         }
 
-        /* Capas de ondas de luz (Cáusticas) */
+        /* Capas de ondas de luz mejoradas */
         .hero::before, .hero::after {
             content: ""; position: absolute; top: -10%; left: -10%; width: 120%; height: 120%;
             background-image: 
-                radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 20% 80%, rgba(0, 69, 219, 0.2) 0%, transparent 40%),
-                radial-gradient(circle at 80% 20%, rgba(0, 210, 255, 0.15) 0%, transparent 40%);
-            filter: blur(30px);
+                radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(0, 69, 219, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(0, 210, 255, 0.18) 0%, transparent 40%);
+            filter: blur(40px);
             z-index: 1;
         }
 
-        .hero::before {
-            animation: water-flow 8s ease-in-out infinite alternate;
-        }
-
-        .hero::after {
-            animation: water-flow 12s ease-in-out infinite alternate-reverse;
-            opacity: 0.6;
-        }
+        .hero::before { animation: water-flow 8s ease-in-out infinite alternate; }
+        .hero::after { animation: water-flow 12s ease-in-out infinite alternate-reverse; opacity: 0.6; }
 
         @keyframes water-flow {
             0% { transform: translate(0, 0) scale(1) rotate(0deg); }
@@ -68,13 +62,32 @@
             100% { transform: translate(5%, -5%) scale(1) rotate(-2deg); }
         }
 
-        .hero-content { z-index: 20; position: relative; }
+        /* ESTILOS DE TEXTO PREMIUM */
+        .hero-content { z-index: 20; position: relative; padding: 0 20px; }
+        
+        .hero h1 { 
+            font-size: clamp(3.5rem, 8vw, 5.5rem); 
+            font-weight: 900; 
+            line-height: 1; 
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 15px 40px rgba(0,0,0,0.7);
+            letter-spacing: -2px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00d2ff 0%, #0045db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
 
         /* BOTÓN CON ONDA DE SONIDO CONTINUA */
         .btn-sonic {
             position: relative; text-decoration: none; color: white; background: var(--blue-deep); 
             padding: 20px 40px; border-radius: 50px; display: inline-block; 
             margin-top: 30px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer;
+            z-index: 30;
         }
 
         .btn-sonic:hover::after {
@@ -143,7 +156,6 @@
             border: 1px solid var(--border); 
             border-radius: 30px;
             text-align: center;
-            /* El centrado interno se maneja con flex si es necesario, pero text-align: center basta */
         }
         .stars { color: var(--gold); margin-bottom: 20px; font-size: 1.5rem; }
         .testimonio-card p { font-size: 1.8rem; font-style: italic; line-height: 1.4; margin-bottom: 25px; color: #fff; }
@@ -191,16 +203,16 @@
 
     <section id="inicio" class="hero">
         <div class="hero-content reveal">
-            <div class="top-rank" style="background: rgba(0, 210, 255, 0.1); border-color: var(--blue-vibrant); text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);">
+            <div class="top-rank" style="background: rgba(0, 210, 255, 0.1); border-color: var(--blue-vibrant); text-shadow: 0 0 10px rgba(0, 210, 255, 0.5); padding: 10px 30px; border: 1px solid var(--blue-vibrant); border-radius: 50px; margin-bottom: 30px; letter-spacing: 5px; display: inline-block; font-size: 0.8rem; font-weight: 800; color: var(--blue-vibrant);">
                 AGENCIA LÍDER GLOBAL
             </div>
 
-            <h1 style="text-shadow: 0 10px 30px rgba(0,0,0,0.5); letter-spacing: -2px;">
-                <span style="display: block; font-size: 0.4em; letter-spacing: 8px; color: #fff; opacity: 0.9; margin-bottom: 10px;">PROYECTA TU ÉXITO</span>
-                Gestión y <span style="background: linear-gradient(to bottom, #00d2ff, #0045db); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Promoción</span><br>de Cuentas Élite
+            <h1>
+                <span style="display: block; font-size: 0.35em; letter-spacing: 10px; color: #fff; opacity: 0.8; margin-bottom: 15px; font-weight: 400;">PROYECTA TU ÉXITO</span>
+                Gestión y <span class="text-gradient">Promoción</span><br>de Cuentas Élite
             </h1>
 
-            <p style="font-size: 1.1rem; color: #cbd5e1; max-width: 650px; margin: 25px auto;">
+            <p style="font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin: 25px auto; line-height: 1.6; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
                 Impulsamos tu crecimiento con estrategias de marketing de alto rendimiento diseñadas para el Top 0.5% mundial.
             </p>
             
@@ -240,7 +252,7 @@
         <h2>Casos de <span>Éxito Real</span></h2>
         <div class="carousel-wrapper">
             <div class="carousel-track" id="track">
-                </div>
+            </div>
         </div>
     </section>
 
