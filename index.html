@@ -34,21 +34,26 @@
         .reveal { opacity: 0; transform: translateY(80px); transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* HERO SECTION CON ANIMACIÓN DE AGUA */
+        /* HERO SECTION */
         .hero { 
             position: relative; height: 100vh; width: 100%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; overflow: hidden;
-            background: radial-gradient(circle at 50% 50%, #002a6b 0%, #020617 100%);
-            background-size: 200% 200%;
-            animation: water-motion 8s ease infinite alternate;
+            background: #020617;
         }
-
-        @keyframes water-motion {
-            0% { background-position: 0% 50%; background-size: 200% 200%; }
-            50% { background-position: 100% 50%; background-size: 150% 150%; }
-            100% { background-position: 50% 100%; background-size: 200% 200%; }
+        .hero::before {
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at center, rgba(0, 210, 255, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 30% 30%, rgba(0, 69, 219, 0.05) 0%, transparent 50%);
+            animation: water-waves 12s linear infinite;
+            pointer-events: none; z-index: 1;
         }
+        @keyframes water-waves {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .hero-content { z-index: 20; position: relative; }
 
         /* BOTÓN CON ONDA DE SONIDO CONTINUA */
         .btn-sonic {
